@@ -10,15 +10,14 @@ import javax.swing.JComponent;
  */
 public abstract class Obstacles extends JComponent
 {
-	private Rectangle2D.Double hitbox;
+	
+	public abstract int setY();
+	
+	public abstract int setX();
 	
 	public abstract int getY();
 	
 	public abstract int getX();
 	
-	
-	public abstract Rectangle2D.Double getHitbox();
-	
-	public abstract int getSpeed();
 	
 }
