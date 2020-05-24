@@ -5,8 +5,7 @@
  *
  */
 public class CeilingSpikeBall extends Obstacles
-{
-	int num = 2; 
+{ 
 	public CeilingSpikeBall(int x, int y, int width, int height)
 	{
 		setLocation(x, y);

@@ -12,19 +12,47 @@ public class GameFrame extends JFrame
 	public GameFrame()
 	{
 		
-		setBounds(100, 100, 1920, 1080);
+		setBounds(100, 100, 1400, 800);
 		setResizable(false);
-		setLayout(null);
 		
-		BackgroundImage background = new BackgroundImage(getWidth(), getHeight());
-		background.setLocation(0, 0);
-		add(background);
-		
-		//unfinished
+		//to do
 		
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		
+		/** 
+		 * Spawning code
+		 * DoorWithButton door;
+		 * CeilingSpikeBall spikeBall;
+		 * EnemyNinja enemyNinja;
+		 * Caltrops caltrops;
+		 * SpikeWall spikeWall;
+		 * int obstacle = (int)(Math.random()*5)+1;
+		 * if(obstacle == 1)
+		 * {
+		 * 		door = new DoorWithButton(2000, , ,);
+		 * 		add(door);
+		 * }
+		 * else if(obstacle == 2)
+		 * {
+		 * 		spikeBall = new CeilingSpikeBall(2000, , ,);
+		 * 		add(spikeBall);
+		 * }
+		 * else if(obstacle == 3)
+		 * {
+		 * 		enemyNinja = new EnemyNinja(2000, , ,);
+		 * 		add(enemyNinja);
+		 * }
+		 * else if(obstacle == 4)
+		 * {
+		 * 		caltrops = new Caltrops(2000, , ,);
+		 * 		add(caltrops);
+		 * }
+		 * else if(obstacle == 5)
+		 * {
+		 * 		spikeWall = new SpikeWall(2000, , ,);
+		 * 		add(SpikeWall);
+		 * }
+		 */
 	}
 	
 }
