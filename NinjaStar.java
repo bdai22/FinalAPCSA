@@ -1,3 +1,4 @@
+import javax.swing.JComponent;
 
 /**
  * 
@@ -5,7 +6,13 @@
  * ninja star
  *
  */
-public class NinjaStar 
+public class NinjaStar extends JComponent
 {
-
+	private int speed;
+	
+	
+	public NinjaStar(int x, int y, int speed)
+	{
+		
+	}
 }
