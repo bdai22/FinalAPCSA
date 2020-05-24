@@ -8,7 +8,7 @@ import javax.swing.JComponent;
  */
 public class NinjaStar extends JComponent
 {
-	private int speed;//
+	private int speed;
 	
 	
 	public NinjaStar(int x, int y, int speed)
