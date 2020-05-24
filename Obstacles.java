@@ -10,6 +10,7 @@ import javax.swing.JComponent;
  */
 public abstract class Obstacles extends JComponent
 {
+	private Rectangle2D.Double hitbox;
 	
 	public abstract int getY();
 	
