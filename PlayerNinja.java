@@ -1,3 +1,5 @@
+import java.awt.geom.Rectangle2D;
+
 import javax.swing.JComponent;
 
 /**
@@ -11,13 +13,10 @@ public class PlayerNinja extends JComponent
 	private int speed;
 	
 	
-	
 	public PlayerNinja(int x, int y, int width, int height)
 	{
 		setLocation(x, y);
 		setSize(width, height);
-		
-		
 	}
 	
 }
