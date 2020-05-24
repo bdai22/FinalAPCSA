@@ -10,8 +10,6 @@ import javax.swing.JComponent;
  */
 public class PlayerNinja extends JComponent
 {
-	private int speed;
-	
 	
 	public PlayerNinja(int x, int y, int width, int height)
 	{
