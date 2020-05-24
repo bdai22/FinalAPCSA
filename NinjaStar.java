@@ -11,8 +11,10 @@ public class NinjaStar extends Obstacles
 	private int speed;
 	
 	
-	public NinjaStar(int x, int y, int speed)
+	public NinjaStar(int x, int y, int size, int speed)
 	{
-		
+		setLocation(x, y);
+		setSize(size, size);
 	}
+	
 }
