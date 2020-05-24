@@ -15,6 +15,7 @@ public abstract class Obstacles extends JComponent
 	
 	public abstract int getX();
 	
+	
 	public abstract Rectangle2D.Double getHitbox();
 	
 	public abstract int getSpeed();
