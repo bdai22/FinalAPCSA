@@ -14,6 +14,7 @@ public class PlayerNinja extends JComponent
 	public PlayerNinja(int x, int y, int width, int height)
 	{
 		setLocation(x, y);
+		
 		setSize(width, height);
 	}
 	
