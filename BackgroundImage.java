@@ -20,6 +20,7 @@ public class BackgroundImage extends JPanel
 	
 	private JLabel labelContainer;
 	private JLabel startPrompt;
+	private JLabel score;
 
 	public BackgroundImage(int w, int h)
 	{
@@ -46,6 +47,17 @@ public class BackgroundImage extends JPanel
 	public void removeStart()
 	{
 		labelContainer.remove(startPrompt);
+		score = new JLabel("0");
+		score.setBounds(900, 100, 1000, 250);
+		score.setFont(new Font("", Font.PLAIN, 60));
+		score.setForeground(Color.WHITE);
+		labelContainer.add(score);
+	}
+	
+	public void updateScore(int score)
+	{
+		this.score.setText(Integer.toString(score));
+		repaint();
 	}
 	
 }

@@ -1,10 +1,13 @@
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.Timer;
 
 /**
  * 
@@ -12,11 +15,14 @@ import javax.swing.JLabel;
  * main frame
  *
  */
-public class GameFrame extends JFrame
+public class GameFrame extends JFrame implements ActionListener
 {
 	
 	private JLabel startPrompt;
+	private BackgroundImage background;
 	private boolean hasStarted;
+	private Timer t;
+	private int score;
 	
 	public GameFrame()
 	{
@@ -27,10 +33,13 @@ public class GameFrame extends JFrame
 		setLayout(null);
 		
 		hasStarted = false;
+		score = 0;
 		
-		BackgroundImage background = new BackgroundImage(getWidth(), getHeight());
-		background.setLocation(0, 0);
-		add(background);
+		BackgroundImage bkgrnd = new BackgroundImage(getWidth(), getHeight());
+		bkgrnd.setLocation(0, 0);
+		add(bkgrnd);
+		
+		background = bkgrnd;
 		
 		this.addKeyListener(new KeyListener() {
 
@@ -86,8 +95,22 @@ public class GameFrame extends JFrame
          * }
          */
 		
+		t = new Timer(5, this);
+		t.start();
+		
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+	}
+
+	public void actionPerformed(ActionEvent e)
+	{
+		
+		if (hasStarted)
+		{
+			score++;
+			background.updateScore(score);
+		}
 		
 	}
 	
