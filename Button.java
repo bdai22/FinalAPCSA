@@ -14,8 +14,4 @@ public class Button extends JComponent
 		
 		setSize(width, height);
 	}
-	public int getNum()
-	{
-		return num;
-	}
 }

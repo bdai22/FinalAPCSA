@@ -12,8 +12,4 @@ public class DoorWithButton extends Obstacles
 		
 		setSize(width, height);
 	}
-	public int getNum()
-	{
-		return num;
-	}
 }
