@@ -7,4 +7,11 @@
 public class Caltrops extends Obstacles
 {
 
+	public Caltrops(int x, int y, int width, int height)
+	{
+		setLocation(x, y);
+		
+		setSize(width, height);
+	}
+
 }

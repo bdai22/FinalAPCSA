@@ -9,6 +9,11 @@ import javax.swing.JComponent;
 public class Button extends JComponent
 {
 
-	
+	public Button(int x, int y, int width, int height)
+	{
+		setLocation(x, y);
+		
+		setSize(width, height);
+	}
 	
 }

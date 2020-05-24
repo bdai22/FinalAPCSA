@@ -7,6 +7,11 @@
 public class DoorWithButton extends Obstacles
 {
 
-	
+	public DoorWithButton(int x, int y, int width, int height)
+	{
+		setLocation(x, y);
+		
+		setSize(width, height);
+	}
 	
 }
