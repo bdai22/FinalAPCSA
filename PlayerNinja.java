@@ -13,12 +13,15 @@ public class PlayerNinja extends JComponent
 	
 	public PlayerNinja(int x, int y, int width, int height)
 	{
-		setLocation(x, y);
 		
+		setLocation(x, y);
 		setSize(width, height);
+		
 	}
+	
 	public boolean collision(Obstacles block)
 	{
+		
 		if(this.getBounds().intersects(block.getBounds()))
 		{
 			return true;
@@ -29,4 +32,5 @@ public class PlayerNinja extends JComponent
 		}
 		
 	}
+	
 }
