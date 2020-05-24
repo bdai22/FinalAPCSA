@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -52,6 +53,16 @@ public class BackgroundImage extends JPanel
 		score.setFont(new Font("", Font.PLAIN, 60));
 		score.setForeground(Color.WHITE);
 		labelContainer.add(score);
+	}
+	
+	public void addToGame(JComponent jc)
+	{
+		labelContainer.add(jc);
+	}
+	
+	public void removeFromGame(JComponent jc)
+	{
+		labelContainer.remove(jc);
 	}
 	
 	public void updateScore(int score)

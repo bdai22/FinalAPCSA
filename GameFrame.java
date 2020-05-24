@@ -23,6 +23,7 @@ public class GameFrame extends JFrame implements ActionListener
 	private boolean hasStarted;
 	private Timer t;
 	private int score;
+	private PlayerNinja player;
 	
 	public GameFrame()
 	{
@@ -40,6 +41,9 @@ public class GameFrame extends JFrame implements ActionListener
 		add(bkgrnd);
 		
 		background = bkgrnd;
+		
+		player = new PlayerNinja(200, 700, 108, 122);
+		background.addToGame(player);
 		
 		this.addKeyListener(new KeyListener() {
 
@@ -105,6 +109,8 @@ public class GameFrame extends JFrame implements ActionListener
 
 	public void actionPerformed(ActionEvent e)
 	{
+		
+		player.update();
 		
 		if (hasStarted)
 		{
