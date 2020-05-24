@@ -32,7 +32,7 @@ public class BackgroundImage extends JPanel
 			
 		}
 		catch (IOException e) {}
-		//
+		
 		setVisible(true);
 		
 	}
