@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 /**
  * 
  * @author Ben Dai, Leon Li, Eric Han, Phillip Zhang
- * background
+ * background v1
  *
  */
 public class BackgroundImage extends JPanel
