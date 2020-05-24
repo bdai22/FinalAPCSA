@@ -20,6 +20,8 @@ public class GameFrame extends JFrame
 		background.setLocation(0, 0);
 		add(background);
 		
+		//unfinished
+		
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
