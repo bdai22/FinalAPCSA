@@ -9,6 +9,7 @@ eric's sprites:
 -run2
 -run3
 -run4
+-run5
 -jump
 -roll1
 -roll2
