@@ -11,13 +11,4 @@ import javax.swing.JComponent;
 public abstract class Obstacles extends JComponent
 {
 	
-	public abstract int setY();
-	
-	public abstract int setX();
-	
-	public abstract int getY();
-	
-	public abstract int getX();
-	
-	
 }
