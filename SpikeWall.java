@@ -6,7 +6,6 @@
  */
 public class SpikeWall extends Obstacles
 {
-	int num = 4; 
 	public SpikeWall(int x, int y, int width, int height)
 	{
 		setLocation(x, y);
