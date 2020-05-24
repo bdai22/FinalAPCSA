@@ -1,3 +1,5 @@
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -15,6 +17,9 @@ import javax.swing.JPanel;
  */
 public class BackgroundImage extends JPanel
 {
+	
+	private JLabel labelContainer;
+	private JLabel startPrompt;
 
 	public BackgroundImage(int w, int h)
 	{
@@ -22,19 +27,25 @@ public class BackgroundImage extends JPanel
 		setSize(w, h);
 		setLayout(null);
 		
-		try
-		{
-			
-			BufferedImage bImg = ImageIO.read(new File("NinjaBackground.jpg"));
-			JLabel label = new JLabel(new ImageIcon(bImg));
-			label.setBounds(0, 0, getWidth(), getHeight());
-			add(label);
-			
-		}
-		catch (IOException e) {}
+		JLabel label = new JLabel(new ImageIcon("NinjaBackground.jpg"));
+		label.setBounds(0, 0, getWidth(), getHeight());
+		add(label);
+		
+		labelContainer = label;
+		
+		startPrompt = new JLabel("Press 'SPACE' to start!");
+		startPrompt.setBounds(650, 100, 1000, 250);
+		startPrompt.setFont(new Font("", Font.PLAIN, 60));
+		startPrompt.setForeground(Color.WHITE);
+		label.add(startPrompt);
 		
 		setVisible(true);
 		
+	}
+	
+	public void removeStart()
+	{
+		labelContainer.remove(startPrompt);
 	}
 	
 }
