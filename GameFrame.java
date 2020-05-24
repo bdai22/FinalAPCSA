@@ -15,7 +15,7 @@ public class GameFrame extends JFrame
 		setBounds(100, 100, 1400, 800);
 		setResizable(false);
 		
-		
+		//to do
 		
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
