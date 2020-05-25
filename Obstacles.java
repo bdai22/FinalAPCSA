@@ -5,8 +5,8 @@ import javax.swing.JLabel;
 /**
  * 
  * @author Ben Dai, Leon Li, Eric Han, Phillip Zhang
- * superclass obstacle
- *
+ * superclass obstacle v1
+ * 
  */
 public abstract class Obstacles extends JComponent
 {
