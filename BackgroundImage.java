@@ -22,6 +22,8 @@ public class BackgroundImage extends JPanel
 	private JLabel labelContainer;
 	private JLabel startPrompt;
 	private JLabel score;
+	private JLabel ground;
+	private int gCount;
 
 	public BackgroundImage(int w, int h)
 	{
@@ -35,11 +37,17 @@ public class BackgroundImage extends JPanel
 		
 		labelContainer = label;
 		
+		gCount = 1;
+		
 		startPrompt = new JLabel("Press 'SPACE' to start!");
 		startPrompt.setBounds(650, 100, 1000, 250);
 		startPrompt.setFont(new Font("", Font.PLAIN, 60));
 		startPrompt.setForeground(Color.WHITE);
 		label.add(startPrompt);
+		
+		ground = new JLabel(new ImageIcon("Ground 1.png"));
+		ground.setBounds(0, 850, 1920, 400);
+		label.add(ground);
 		
 		setVisible(true);
 		
@@ -68,6 +76,10 @@ public class BackgroundImage extends JPanel
 	public void updateScore(int score)
 	{
 		this.score.setText(Integer.toString(score));
+		gCount++;
+		if (gCount == 4)
+			gCount = 1;
+		ground.setIcon(new ImageIcon("Ground " + gCount + ".png"));
 		repaint();
 	}
 	
