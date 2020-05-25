@@ -34,6 +34,7 @@ public class GameFrame extends JFrame implements ActionListener
 	private int slideTimeMs = 750;
 	private boolean threwStar;
 	private int ninjaStarTimeMs = 800;
+	private boolean died;
 	
 	private int gameTickRateMs = 30;
 	private int gameSpeed = 14;
@@ -54,6 +55,7 @@ public class GameFrame extends JFrame implements ActionListener
 		sliding = false;
 		timeSlid = 0;
 		threwStar = false;
+		died = false;
 		
 		BackgroundImage bkgrnd = new BackgroundImage(getWidth(), getHeight());
 		bkgrnd.setLocation(0, 0);
@@ -165,6 +167,10 @@ public class GameFrame extends JFrame implements ActionListener
 				{
 					currObs.get(i).setX(currObs.get(i).getX() - gameSpeed);
 					currObs.get(i).update();
+					if (player.isTouching(currObs.get(i)))
+					{
+						
+					}
 				}
 			}
 		}
