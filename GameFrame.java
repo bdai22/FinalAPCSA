@@ -26,8 +26,14 @@ public class GameFrame extends JFrame implements ActionListener
 	private int score;
 	private PlayerNinja player;
 	private ArrayList<Obstacles> currObs;
+	
 	private int velocity;
 	private boolean jumping;
+	private boolean sliding;
+	private int timeSlid;
+	private int slideTimeMs = 750;
+	
+	private int gameTickRateMs = 30;
 	
 	public GameFrame()
 	{
@@ -40,6 +46,9 @@ public class GameFrame extends JFrame implements ActionListener
 		hasStarted = false;
 		score = 0;
 		currObs = new ArrayList<Obstacles>();
+		jumping = false;
+		sliding = false;
+		timeSlid = 0;
 		
 		BackgroundImage bkgrnd = new BackgroundImage(getWidth(), getHeight());
 		bkgrnd.setLocation(0, 0);
@@ -62,10 +71,17 @@ public class GameFrame extends JFrame implements ActionListener
 					hasStarted = true;
 					background.removeStart();
 				}
-				if (e.getKeyCode() == e.VK_W && player.getY() == 700)
+				else if (e.getKeyCode() == e.VK_W && player.getY() == 700 && !jumping)
 				{
 					velocity = -23;
 					jumping = true;
+					player.setAction("Jump");
+				}
+				else if (e.getKeyCode() == e.VK_S && player.getY() == 700 && !sliding)
+				{
+					sliding = true;
+					player.setAction("Slide");
+					timeSlid = 0;
 				}
 			}
 
@@ -108,7 +124,7 @@ public class GameFrame extends JFrame implements ActionListener
          * }
          */
 		
-		t = new Timer(30, this);
+		t = new Timer(gameTickRateMs, this);
 		t.start();
 		
 		setVisible(true);
@@ -118,17 +134,30 @@ public class GameFrame extends JFrame implements ActionListener
 
 	public void actionPerformed(ActionEvent e)
 	{
-		if(jumping)
+		
+		if (jumping)
 		{
 			player.setLocation(200, player.getY() + velocity);
 			velocity = velocity + 1;	
-			if(player.getY() >= 700)
+			if (player.getY() >= 700)
 			{
 				velocity = 0;
 				player.setLocation(200, 700);
-				jumping = false; 
+				jumping = false;
+				player.setAction("Run");
 			}
 		}
+		
+		if (sliding)
+		{
+			timeSlid++;
+			if (timeSlid * gameTickRateMs >= slideTimeMs)
+			{
+				player.setAction("Run");
+				sliding = false;
+			}
+		}
+		
 		player.update();
 		
 		if (hasStarted)

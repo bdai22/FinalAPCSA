@@ -81,25 +81,25 @@ public class PlayerNinja extends JComponent
 		setLocation(getX(), y);
 	}
 	
-	public boolean isTouching(Obstacles block)
-	{
-		
-		if (!currAction.equals("Slide")) //check hit reg while not sliding
-		{
-			if (getBounds().intersects(block.getBounds()))
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-		else //check hit reg while sliding
-		{
-			// todo
-		}
-		
-	}
+//	public boolean isTouching(Obstacles block)
+//	{
+//		
+//		if (!currAction.equals("Slide")) //check hit reg while not sliding
+//		{
+//			if (getBounds().intersects(block.getBounds()))
+//			{
+//				return true;
+//			}
+//			else
+//			{
+//				return false;
+//			}
+//		}
+//		else //check hit reg while sliding
+//		{
+//			// todo
+//		}
+//		
+//	}
 	
 }
