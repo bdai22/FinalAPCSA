@@ -99,7 +99,7 @@ public class GameFrame extends JFrame implements ActionListener
          * }
          */
 		
-		t = new Timer(5, this);
+		t = new Timer(20, this);
 		t.start();
 		
 		setVisible(true);
