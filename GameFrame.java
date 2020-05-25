@@ -13,7 +13,7 @@ import javax.swing.Timer;
 /**
  * 
  * @author Ben Dai, Leon Li, Eric Han, Phillip Zhang
- * main frame v4
+ * main frame v5
  *
  */
 public class GameFrame extends JFrame implements ActionListener
@@ -36,7 +36,7 @@ public class GameFrame extends JFrame implements ActionListener
 	private int ninjaStarTimeMs = 800;
 	
 	private int gameTickRateMs = 30;
-	private int gameSpeed = 10;
+	private int gameSpeed = 14;
 	private int accuGameSpeed = 0;
 	
 	public GameFrame()
@@ -137,7 +137,7 @@ public class GameFrame extends JFrame implements ActionListener
 		
 		if (score > 500) //update speed of game for difficulty
 		{
-			gameSpeed = 10 + (score - 500) / 500;
+			gameSpeed = 14 + (score - 500) / 500;
 		}
 		
 		if (hasStarted) //update score
@@ -146,23 +146,26 @@ public class GameFrame extends JFrame implements ActionListener
 			background.updateScore(score);
 		}
 		
-		accuGameSpeed += gameSpeed; //update game obstacles
-		if (accuGameSpeed > 1720)
+		if (hasStarted)
 		{
-			accuGameSpeed = 0;
-			spawnNewObs();
-		}
-		for (int i = 0; i < currObs.size(); i++)
-		{
-			if (currObs.get(i).getX() + currObs.get(i).getWidth() < 0)
+			accuGameSpeed += gameSpeed; //update game obstacles
+			if (accuGameSpeed > 1720)
 			{
-				currObs.remove(i);
-				i--;
+				accuGameSpeed = 0;
+				spawnNewObs();
 			}
-			else
+			for (int i = 0; i < currObs.size(); i++)
 			{
-				currObs.get(i).setX(currObs.get(i).getX() - gameSpeed);
-				currObs.get(i).update();
+				if (currObs.get(i).getX() + currObs.get(i).getWidth() < 0)
+				{
+					currObs.remove(i);
+					i--;
+				}
+				else
+				{
+					currObs.get(i).setX(currObs.get(i).getX() - gameSpeed);
+					currObs.get(i).update();
+				}
 			}
 		}
 		
