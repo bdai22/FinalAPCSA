@@ -1,5 +1,5 @@
 # FinalAPCSA
-ninja speedrunner
+Ninja Run 
 
 #TO-DO:
 
@@ -11,15 +11,20 @@ eric's sprites:
 -run4!
 -run5!
 -run6!
--jump
--roll1
--roll2
--jumpthrow
--runthrow
+-jump!
+-roll1!
+-roll2!
+-jumpthrow (cancelled)
+-runthrow (cancelled)
 -death
 
 (obstacles)
--see git repository
+-enemy ninja!
+-spike wall!
+-spike ball!
+-caltrops!
+-door/gate + button!
+-ninja star (in progress) 
 
 (background)
--floor
+-floor!
