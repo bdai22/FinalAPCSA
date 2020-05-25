@@ -32,8 +32,11 @@ public class GameFrame extends JFrame implements ActionListener
 	private boolean sliding;
 	private int timeSlid;
 	private int slideTimeMs = 750;
+	private boolean threwStar;
+	private int ninjaStarTimeMs = 800;
 	
 	private int gameTickRateMs = 30;
+	private int gameSpeed = 5;
 	
 	public GameFrame()
 	{
@@ -49,6 +52,7 @@ public class GameFrame extends JFrame implements ActionListener
 		jumping = false;
 		sliding = false;
 		timeSlid = 0;
+		threwStar = false;
 		
 		BackgroundImage bkgrnd = new BackgroundImage(getWidth(), getHeight());
 		bkgrnd.setLocation(0, 0);
@@ -70,6 +74,10 @@ public class GameFrame extends JFrame implements ActionListener
 				{
 					hasStarted = true;
 					background.removeStart();
+				}
+				else if (e.getKeyCode() == e.VK_SPACE && hasStarted)
+				{
+					
 				}
 				else if (e.getKeyCode() == e.VK_W && player.getY() == 720 && !jumping && !sliding)
 				{
@@ -93,11 +101,17 @@ public class GameFrame extends JFrame implements ActionListener
          * Spawning code
          * DoorWithButton door;
          * CeilingSpikeBall spikeBall;
+         * CeilingSpikeBall spikeBall2;
+         * CeilingSpikeBall spikeBall3;
          * EnemyNinja enemyNinja;
+         * EnemyNinja enemyNinja1;
+         * EnemyNinja enemyNinja2;
          * Caltrops caltrop;
          * Caltrops caltrop2;
          * Caltrops caltrop3;
          * SpikeWall spikeWall;
+         * SpikeWall spikeWall2;
+         * SpikeWall spikeWall3;
          * int obstacle = (int)(Math.random()*5)+1;
          * if(obstacle == 1)
          * {
@@ -110,12 +124,36 @@ public class GameFrame extends JFrame implements ActionListener
          *         spikeBall = new CeilingSpikeBall(2000, , ,);
          *         currObs.add(spikeBall);
          *         background.addToGame(spikeBall);
+         *          if(t > 1000)
+         *         {
+         *         	spikeBall2 = new CeilingSpikeBall(2000, , ,);
+         *         	spikeBall2.add(spikeBall2);
+         *        	 background.addToGame(spikeBall2);
+         *         }
+         *          if(t > 2000)
+         *         {
+         *         	spikeBall3 = new CeilingSpikeBall(2000, , ,);
+         *         	currObs.add(spikeBall3);
+         *        	 background.addToGame(spikeBall3);
+         *         }
          * }
          * else if(obstacle == 3)
          * {
          *         enemyNinja = new EnemyNinja(2000, , ,);
          *         currObs.add(enemyNinja);
          *         background.addToGame(enemyNinja);
+         *          if(t > 1000)
+         *         {
+         *         	enemyNinja1 = new EnemyNinja(2000, , ,);
+         *         	currObs.add(enemyNinja1);
+         *        	 background.addToGame(enemyNinja1);
+         *         }
+         *          if(t > 2000)
+         *         {
+         *         	enemyNinja2 = new EnemyNinja(2000, , ,);
+         *         	currObs.add(enemyNinja2);
+         *        	 background.addToGame(enemyNinja2);
+         *         }
          * }
          * else if(obstacle == 4)
          * {
@@ -124,13 +162,13 @@ public class GameFrame extends JFrame implements ActionListener
          *         background.addToGame(caltrop);
          *         if(t > 1000)
          *         {
-         *         	caltrop2 = new Caltrops(2100, , ,);
+         *         	caltrop2 = new Caltrops(2000, , ,);
          *         	currObs.add(caltrop2);
          *        	 background.addToGame(caltrop2);
          *         }
          *         if(t > 2000)
          *         {
-         *         	caltrop3 = new Caltrops(2200, , ,);
+         *         	caltrop3 = new Caltrops(2000, , ,);
          *         	currObs.add(caltrop3);
          *         	background.addToGame(caltrop3);
          *         }
@@ -139,7 +177,19 @@ public class GameFrame extends JFrame implements ActionListener
          * {
          *         spikeWall = new SpikeWall(2000, , ,);
          *         currObs.add(spikeWall);
-         *         background.addToGame(SpikeWall);
+         *         background.addToGame(spikeWall);
+         *         if(t > 1000)
+         *         {
+         *         	spikeWall2 = new SpikeWall(2000, , ,);
+         *         currObs.add(spikeWall2);
+         *         background.addToGame(spikeWall2);
+         *         }
+         *          if(t > 2000)
+         *         {
+         *         	spikeWall3 = new SpikeWall(2000, , ,);
+         *         currObs.add(spikeWall3);
+         *         background.addToGame(spikeWall3);
+         *         }
          * }
          */
 		
