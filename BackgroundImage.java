@@ -46,7 +46,7 @@ public class BackgroundImage extends JPanel
 		label.add(startPrompt);
 		
 		ground = new JLabel(new ImageIcon("Ground 1.png"));
-		ground.setBounds(0, 850, 1920, 400);
+		ground.setBounds(0, 850, 1920, 400); // change
 		label.add(ground);
 		
 		setVisible(true);
