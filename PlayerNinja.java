@@ -13,48 +13,91 @@ import javax.swing.JLabel;
 public class PlayerNinja extends JComponent
 {
 	
-	private int currSprite;
+	private int currRunSprite;
 	private JLabel showSprite;
-	private ArrayList<ImageIcon> sprites;
+	private ArrayList<ImageIcon> runSprites;
+	private ImageIcon jumpSprite;
+	private ImageIcon slideSprite;
+	private ImageIcon deadSprite;
+	
+	private String currAction; //"Run", "Jump", "Slide", "Dead"
 	
 	public PlayerNinja(int x, int y, int width, int height)
 	{
 		
+		currAction = "Run";
+		
 		setLocation(x, y);
 		setSize(width, height);
-		sprites = new ArrayList<ImageIcon>();
+		runSprites = new ArrayList<ImageIcon>();
 		for (int i = 1; i <= 6; i++)
 		{
-			sprites.add(new ImageIcon("Run " + i + ".png"));
+			runSprites.add(new ImageIcon("Run " + i + ".png"));
 		}
-		currSprite = 0;
-		showSprite = new JLabel(sprites.get(currSprite));
+		currRunSprite = 0;
+		showSprite = new JLabel(runSprites.get(currRunSprite));
 		showSprite.setBounds(0, 0, width, height);
 		add(showSprite);
+		
+		jumpSprite = new ImageIcon("Jump.png");
+		slideSprite = new ImageIcon("Slide.png");
+		deadSprite = new ImageIcon("Dead.png");
 		
 	}
 	
 	public void update()
 	{
-		currSprite++;
-		if (currSprite == 6)
+		if (currAction.equals("Run"))
 		{
-			currSprite = 0;
+			currRunSprite++;
+			if (currRunSprite == 6)
+			{
+			currRunSprite = 0;
+			}
+			showSprite.setIcon(runSprites.get(currRunSprite));
 		}
-		showSprite.setIcon(sprites.get(currSprite));
+		else if (currAction.equals("Jump"))
+		{
+			showSprite.setIcon(jumpSprite);
+		}
+		else if (currAction.equals("Slide"))
+		{
+			showSprite.setIcon(slideSprite);
+		}
+		else if (currAction.equals("Dead"))
+		{
+			showSprite.setIcon(deadSprite);
+		}
 		repaint();
 	}
 	
-	public boolean collision(Obstacles block)
+	public void setAction(String action)
+	{
+		currAction = action;
+	}
+	
+	public void setY(int y)
+	{
+		setLocation(getX(), y);
+	}
+	
+	public boolean isTouching(Obstacles block)
 	{
 		
-		if (this.getBounds().intersects(block.getBounds()))
+		if (!currAction.equals("Slide")) //check hit reg while not sliding
 		{
-			return true;
+			if (getBounds().intersects(block.getBounds()))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
-		else
+		else //check hit reg while sliding
 		{
-			return false;
+			// todo
 		}
 		
 	}
