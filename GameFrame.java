@@ -89,6 +89,10 @@ public class GameFrame extends JFrame implements ActionListener
 			
 		});
 		
+		//test for now
+		SpikeWall x = new SpikeWall(500, 650, 150, 150);
+		add(x);
+		
 		/*
          * Spawning code
          * DoorWithButton door;
