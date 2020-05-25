@@ -89,10 +89,6 @@ public class GameFrame extends JFrame implements ActionListener
 			
 		});
 		
-		//test for now
-		SpikeWall x = new SpikeWall(500, 650, 150, 150);
-		add(x);
-		
 		/*
          * Spawning code
          * DoorWithButton door;
@@ -104,27 +100,32 @@ public class GameFrame extends JFrame implements ActionListener
          * if(obstacle == 1)
          * {
          *         door = new DoorWithButton(2000, , ,);
-         *         add(door);
+         *         currObs.add(door);
+         *         background.addToGame(door);
          * }
          * else if(obstacle == 2)
          * {
          *         spikeBall = new CeilingSpikeBall(2000, , ,);
-         *         add(spikeBall);
+         *         currObs.add(spikeBall);
+         *         background.addToGame(spikeBall);
          * }
          * else if(obstacle == 3)
          * {
          *         enemyNinja = new EnemyNinja(2000, , ,);
-         *         add(enemyNinja);
+         *         currObs.add(enemyNinja);
+         *         background.addToGame(enemyNinja);
          * }
          * else if(obstacle == 4)
          * {
          *         caltrops = new Caltrops(2000, , ,);
-         *         add(caltrops);
+         *         currObs.add(caltrops);
+         *         background.addToGame(caltrops);
          * }
          * else if(obstacle == 5)
          * {
          *         spikeWall = new SpikeWall(2000, , ,);
-         *         add(SpikeWall);
+         *         currObs.add(spikeWall);
+         *         background.addToGame(SpikeWall);
          * }
          */
 		
