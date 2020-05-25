@@ -73,23 +73,27 @@ public class GameFrame extends JFrame implements ActionListener
 			public void keyPressed(KeyEvent e)
 			{
 				
-				if (e.getKeyCode() == e.VK_SPACE && !hasStarted)
+				if (e.getKeyCode() == e.VK_SPACE && !hasStarted && !died)
 				{
 					hasStarted = true;
 					background.removeStart();
 					spawnNewObs();
 				}
+				else if (e.getKeyCode() == e.VK_SPACE && !hasStarted && died)
+				{
+					//unfinished restart game
+				}
 				else if (e.getKeyCode() == e.VK_SPACE && hasStarted)
 				{
 					//unfinished SHOOT SHURIEKN
 				}
-				else if (e.getKeyCode() == e.VK_W && player.getY() == 720 && !jumping && !sliding)
+				else if (e.getKeyCode() == e.VK_W && player.getY() == 720 && !jumping && !sliding && !died)
 				{
 					velocity = -23;
 					jumping = true;
 					player.setAction("Jump");
 				}
-				else if (e.getKeyCode() == e.VK_S && player.getY() == 720 && !sliding && !jumping)
+				else if (e.getKeyCode() == e.VK_S && player.getY() == 720 && !sliding && !jumping && !died)
 				{
 					sliding = true;
 					player.setAction("Slide");
@@ -167,12 +171,18 @@ public class GameFrame extends JFrame implements ActionListener
 				{
 					currObs.get(i).setX(currObs.get(i).getX() - gameSpeed);
 					currObs.get(i).update();
-					if (player.isTouching(currObs.get(i)))
+					if (player.isTouching(currObs.get(i)) && !(currObs.get(i) instanceof Planks))
 					{
-						
+						died = true;
 					}
 				}
 			}
+		}
+		
+		if (died) //game over
+		{
+			hasStarted = false;
+			player.setAction("Dead");
 		}
 		
 	}
@@ -195,7 +205,7 @@ public class GameFrame extends JFrame implements ActionListener
 		Planks woodWall;
 		Planks woodWall2;
 		Planks woodWall3;
-		int obstacle = 5;//(int)(Math.random()*5+1);
+		int obstacle = 4;//(int)(Math.random()*5+1);
 		/*if(obstacle == 1)
 		{
 		        woodWall = new WoodWall(2000, , ,);
@@ -238,38 +248,38 @@ public class GameFrame extends JFrame implements ActionListener
 		        	background.addToGame(enemyNinja2);
 		        }
 		}
-		else if(obstacle == 4)
+		else*/ if(obstacle == 4)
 		{
-		        caltrop = new Caltrops(2000, , ,);
+		        caltrop = new Caltrops(2000, 780, 110, 110);
 		        currObs.add(caltrop);
 		        background.addToGame(caltrop);
 		        if(score > 1000)
 		        {
-		        	caltrop2 = new Caltrops(2000, , ,);
+		        	caltrop2 = new Caltrops(2000, 780, 110, 110);
 		        	currObs.add(caltrop2);
 		       	 	background.addToGame(caltrop2);
 		        }
 		        if(score > 2000)
 		        {
-		        	caltrop3 = new Caltrops(2000, , ,);
+		        	caltrop3 = new Caltrops(2000, 780, 110, 110);
 		        	currObs.add(caltrop3);
 		        	background.addToGame(caltrop3);
 		        }
 		}
-		else*/ if(obstacle == 5)
+		else if(obstacle == 5)
 		{
 		        spikeWall = new SpikeWall(2000, 700, 150, 150);
 		        currObs.add(spikeWall);
 		        background.addToGame(spikeWall);
 		        if(score > 1000)
 		        {
-		        	spikeWall2 = new SpikeWall(2150, 700, 150, 150);
+		        	spikeWall2 = new SpikeWall(2100, 700, 150, 150);
 		        	currObs.add(spikeWall2);
 		        	background.addToGame(spikeWall2);
 		        }
 		        if(score > 2000)
 		        {
-		        	spikeWall3 = new SpikeWall(2300, 700, 150, 150);
+		        	spikeWall3 = new SpikeWall(2200, 700, 150, 150);
 		        	currObs.add(spikeWall3);
 		        	background.addToGame(spikeWall3);
 		        }
