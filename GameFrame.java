@@ -186,15 +186,15 @@ public class GameFrame extends JFrame implements ActionListener
 		SpikeWall spikeWall;
 		SpikeWall spikeWall2;
 		SpikeWall spikeWall3;
-		Planks planks;
-		Planks planks2;
-		Planks planks3;
+		Planks woodWall;
+		Planks woodWall2;
+		Planks woodWall3;
 		int obstacle = 5;//(int)(Math.random()*5+1);
 		/*if(obstacle == 1)
 		{
-		        planks = new Planks(2000, , ,);
-		        currObs.add(planks);
-		        background.addToGame(planks);
+		        woodWall = new WoodWall(2000, , ,);
+		        currObs.add(woodWall);
+		        background.addToGame(woodWall);
 		}
 		else if(obstacle == 2)
 		{
