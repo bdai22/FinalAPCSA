@@ -32,7 +32,7 @@ public class GameFrame extends JFrame implements ActionListener
 	private boolean jumping;
 	private boolean sliding;
 	private int timeSlid;
-	private int slideTimeMs = 750;
+	private int slideTimeMs = 1500;
 	private boolean threwStar;
 	private int timeThrewStar;
 	private int ninjaStarTimeMs = 1500;
@@ -122,7 +122,7 @@ public class GameFrame extends JFrame implements ActionListener
 	public void actionPerformed(ActionEvent e)
 	{
 		
-		if (jumping) //jump
+		if (jumping && !died) //jump
 		{
 			player.setY(player.getY() + velocity);
 			velocity = velocity + 1;	
@@ -135,7 +135,7 @@ public class GameFrame extends JFrame implements ActionListener
 			}
 		}
 		
-		if (sliding) //slide
+		if (sliding && !died) //slide
 		{
 			timeSlid++;
 			if (timeSlid * gameTickRateMs >= slideTimeMs)
@@ -145,7 +145,7 @@ public class GameFrame extends JFrame implements ActionListener
 			}
 		}
 		
-		if (threwStar) //star cooldown
+		if (threwStar && !died) //star cooldown
 		{
 			timeThrewStar++;
 			if (timeThrewStar * gameTickRateMs >= ninjaStarTimeMs)
@@ -271,32 +271,32 @@ public class GameFrame extends JFrame implements ActionListener
 		Planks woodWall;
 		Planks woodWall2;
 		Planks woodWall3;
-		int obstacle = 3;//(int)(Math.random()*5+1);
+		int obstacle = 2;//(int)(Math.random()*5+1);
 		/*if(obstacle == 1)
 		{
 		        woodWall = new WoodWall(2000, , ,);
 		        currObs.add(woodWall);
 		        background.addToGame(woodWall);
 		}
-		else if(obstacle == 2)
+		else*/ if(obstacle == 2)
 		{
-		        spikeBall = new CeilingSpikeBall(2000, , ,);
+		        spikeBall = new CeilingSpikeBall(2000, -125, 70, 900);
 		        currObs.add(spikeBall);
 		        background.addToGame(spikeBall);
 		        if(score > 1000)
 		        {
-		        	spikeBall2 = new CeilingSpikeBall(2000, , ,);
-		        	spikeBall2.add(spikeBall2);
+		        	spikeBall2 = new CeilingSpikeBall(2090, -125, 70, 900);
+		        	currObs.add(spikeBall2);
 		        	background.addToGame(spikeBall2);
 		        }
 		        if(score > 2000)
 		        {
-		        	spikeBall3 = new CeilingSpikeBall(2000, , ,);
+		        	spikeBall3 = new CeilingSpikeBall(2180, -125, 70, 900);
 		        	currObs.add(spikeBall3);
 		        	background.addToGame(spikeBall3);
 		        }
 		}
-		else*/ if(obstacle == 3)
+		else if(obstacle == 3)
 		{
 		        enemyNinja = new EnemyNinja(2000, 720, 145, 145);
 		        currObs.add(enemyNinja);
