@@ -27,10 +27,6 @@ public class PlayerNinja extends JComponent
 		{
 			sprites.add(new ImageIcon("Run " + i + ".png"));
 		}
-		for (int i = 5; i >= 2; i--)
-		{
-			sprites.add(new ImageIcon("Run " + i + ".png"));
-		}
 		currSprite = 0;
 		showSprite = new JLabel(sprites.get(currSprite));
 		showSprite.setBounds(0, 0, width, height);
@@ -41,7 +37,7 @@ public class PlayerNinja extends JComponent
 	public void update()
 	{
 		currSprite++;
-		if (currSprite == 10)
+		if (currSprite == 6)
 		{
 			currSprite = 0;
 		}
