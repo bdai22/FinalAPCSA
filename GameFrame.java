@@ -71,13 +71,13 @@ public class GameFrame extends JFrame implements ActionListener
 					hasStarted = true;
 					background.removeStart();
 				}
-				else if (e.getKeyCode() == e.VK_W && player.getY() == 720 && !jumping)
+				else if (e.getKeyCode() == e.VK_W && player.getY() == 720 && !jumping && !sliding)
 				{
 					velocity = -23;
 					jumping = true;
 					player.setAction("Jump");
 				}
-				else if (e.getKeyCode() == e.VK_S && player.getY() == 720 && !sliding)
+				else if (e.getKeyCode() == e.VK_S && player.getY() == 720 && !sliding && !jumping)
 				{
 					sliding = true;
 					player.setAction("Slide");
