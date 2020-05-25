@@ -13,7 +13,7 @@ import javax.swing.Timer;
 /**
  * 
  * @author Ben Dai, Leon Li, Eric Han, Phillip Zhang
- * main frame v3
+ * main frame v4
  *
  */
 public class GameFrame extends JFrame implements ActionListener
