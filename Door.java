@@ -1,7 +1,7 @@
 /**
  * 
  * @author Ben Dai, Leon Li, Eric Han, Phillip Zhang
- * door
+ * door v1
  *
  */
 public class Door extends Obstacles

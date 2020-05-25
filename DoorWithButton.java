@@ -3,7 +3,7 @@ import javax.swing.JComponent;
 /**
  * 
  * @author Ben Dai, Leon Li, Eric Han, Phillip Zhang
- * door w/ button obstacle
+ * door w/ button obstacle v1
  *
  */
 public class DoorWithButton extends JComponent
