@@ -199,13 +199,15 @@ public class GameFrame extends JFrame implements ActionListener
         Caltrops caltrop;
         Caltrops caltrop2;
 		Caltrops caltrop3;
+		Caltrops caltrop4;
+		Caltrops caltrop5;
 		SpikeWall spikeWall;
 		SpikeWall spikeWall2;
 		SpikeWall spikeWall3;
 		Planks woodWall;
 		Planks woodWall2;
 		Planks woodWall3;
-		int obstacle = 4;//(int)(Math.random()*5+1);
+		int obstacle = 3;//(int)(Math.random()*5+1);
 		/*if(obstacle == 1)
 		{
 		        woodWall = new WoodWall(2000, , ,);
@@ -230,40 +232,52 @@ public class GameFrame extends JFrame implements ActionListener
 		        	background.addToGame(spikeBall3);
 		        }
 		}
-		else if(obstacle == 3)
+		else*/ if(obstacle == 3)
 		{
-		        enemyNinja = new EnemyNinja(2000, , ,);
+		        enemyNinja = new EnemyNinja(2000, 720, 145, 145);
 		        currObs.add(enemyNinja);
 		        background.addToGame(enemyNinja);
 		        if(score > 1000)
 		        {
-		        	enemyNinja1 = new EnemyNinja(2000, , ,);
+		        	enemyNinja1 = new EnemyNinja(2125, 720, 145, 145);
 		        	currObs.add(enemyNinja1);
 		        	background.addToGame(enemyNinja1);
 		        }
 		        if(score > 2000)
 		        {
-		        	enemyNinja2 = new EnemyNinja(2000, , ,);
+		        	enemyNinja2 = new EnemyNinja(2250, 720, 145, 145);
 		        	currObs.add(enemyNinja2);
 		        	background.addToGame(enemyNinja2);
 		        }
 		}
-		else*/ if(obstacle == 4)
+		else if(obstacle == 4)
 		{
 		        caltrop = new Caltrops(2000, 780, 110, 110);
 		        currObs.add(caltrop);
 		        background.addToGame(caltrop);
 		        if(score > 1000)
 		        {
-		        	caltrop2 = new Caltrops(2000, 780, 110, 110);
+		        	caltrop2 = new Caltrops(2075, 780, 110, 110);
 		        	currObs.add(caltrop2);
 		       	 	background.addToGame(caltrop2);
 		        }
 		        if(score > 2000)
 		        {
-		        	caltrop3 = new Caltrops(2000, 780, 110, 110);
+		        	caltrop3 = new Caltrops(2150, 780, 110, 110);
 		        	currObs.add(caltrop3);
 		        	background.addToGame(caltrop3);
+		        }
+		        if (score > 3000)
+		        {
+		        	caltrop4 = new Caltrops(2225, 780, 110, 110);
+		        	currObs.add(caltrop4);
+		        	background.addToGame(caltrop4);
+		        }
+		        if (score > 4000)
+		        {
+		        	caltrop5 = new Caltrops(2300, 780, 110, 110);
+		        	currObs.add(caltrop5);
+		        	background.addToGame(caltrop5);
 		        }
 		}
 		else if(obstacle == 5)

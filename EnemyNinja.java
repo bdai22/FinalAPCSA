@@ -1,3 +1,5 @@
+import javax.swing.ImageIcon;
+
 /**
  * 
  * @author Ben Dai, Leon Li, Eric Han, Phillip Zhang
@@ -6,10 +8,13 @@
  */
 public class EnemyNinja extends Obstacles
 {
+	
 	public EnemyNinja(int x, int y, int width, int height)
 	{
-		setLocation(x, y);
 		
-		setSize(width, height);
+		super(width, height, new ImageIcon("EnemyNinja.png"));
+		setBounds(x, y, width, height);
+		
 	}
+	
 }
