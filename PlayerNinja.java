@@ -1,3 +1,4 @@
+import java.awt.Rectangle;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -41,7 +42,7 @@ public class PlayerNinja extends JComponent
 		
 		jumpSprite = new ImageIcon("Jump.png");
 		slideSprite = new ImageIcon("Slide.png");
-		deadSprite = new ImageIcon("Dead.png");
+		deadSprite = new ImageIcon("DeadPlayer.png");
 		
 	}
 	
@@ -81,25 +82,19 @@ public class PlayerNinja extends JComponent
 		setLocation(getX(), y);
 	}
 	
-//	public boolean isTouching(Obstacles block)
-//	{
-//		
-//		if (!currAction.equals("Slide")) //check hit reg while not sliding
-//		{
-//			if (getBounds().intersects(block.getBounds()))
-//			{
-//				return true;
-//			}
-//			else
-//			{
-//				return false;
-//			}
-//		}
-//		else //check hit reg while sliding
-//		{
-//			// todo
-//		}
-//		
-//	}
+	public boolean isTouching(Obstacles block)
+	{
+		
+		if (!currAction.equals("Slide")) //check hit reg while NOT sliding
+		{
+			return getBounds().intersects(block.getBounds());
+		}
+		else //check hit reg while sliding
+		{
+			Rectangle bounds = new Rectangle(getX(), getY() + getHeight() / 2, getWidth(), getHeight() / 2);
+			return bounds.intersects(block.getBounds());
+		}
+		
+	}
 	
 }
