@@ -9,12 +9,26 @@ import javax.swing.ImageIcon;
 public class EnemyNinja extends Obstacles
 {
 	
+	private boolean killed;
+	
 	public EnemyNinja(int x, int y, int width, int height)
 	{
 		
 		super(width, height, new ImageIcon("EnemyNinja.png"));
 		setBounds(x, y, width, height);
+		killed = false;
 		
+	}
+	
+	public boolean isKilled()
+	{
+		return killed;
+	}
+	
+	public void kill()
+	{
+		killed = true;
+		setImgIcon(new ImageIcon("DeadEnemy.png"));
 	}
 	
 }

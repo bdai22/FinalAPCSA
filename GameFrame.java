@@ -26,6 +26,7 @@ public class GameFrame extends JFrame implements ActionListener
 	private int score;
 	private PlayerNinja player;
 	private ArrayList<Obstacles> currObs;
+	private ArrayList<NinjaStar> stars;
 	
 	private int velocity;
 	private boolean jumping;
@@ -33,6 +34,7 @@ public class GameFrame extends JFrame implements ActionListener
 	private int timeSlid;
 	private int slideTimeMs = 750;
 	private boolean threwStar;
+	private int timeThrewStar;
 	private int ninjaStarTimeMs = 800;
 	private boolean died;
 	
@@ -51,10 +53,12 @@ public class GameFrame extends JFrame implements ActionListener
 		hasStarted = false;
 		score = 0;
 		currObs = new ArrayList<Obstacles>();
+		stars = new ArrayList<NinjaStar>();
 		jumping = false;
 		sliding = false;
 		timeSlid = 0;
 		threwStar = false;
+		timeThrewStar = 0;
 		died = false;
 		
 		BackgroundImage bkgrnd = new BackgroundImage(getWidth(), getHeight());
@@ -83,9 +87,11 @@ public class GameFrame extends JFrame implements ActionListener
 				{
 					//unfinished restart game
 				}
-				else if (e.getKeyCode() == e.VK_SPACE && hasStarted)
+				else if (e.getKeyCode() == e.VK_SPACE && hasStarted && !threwStar)
 				{
-					//unfinished SHOOT SHURIEKN
+					shootStar();
+					threwStar = true;
+					timeThrewStar = 0;
 				}
 				else if (e.getKeyCode() == e.VK_W && player.getY() == 720 && !jumping && !sliding && !died)
 				{
@@ -139,6 +145,15 @@ public class GameFrame extends JFrame implements ActionListener
 			}
 		}
 		
+		if (threwStar) //star cooldown
+		{
+			timeThrewStar++;
+			if (timeThrewStar * gameTickRateMs >= ninjaStarTimeMs)
+			{
+				threwStar = false;
+			}
+		}
+		
 		player.update(); //anims
 		
 		if (score > 500) //update speed of game for difficulty
@@ -164,6 +179,7 @@ public class GameFrame extends JFrame implements ActionListener
 			{
 				if (currObs.get(i).getX() + currObs.get(i).getWidth() < 0)
 				{
+					background.removeFromGame(currObs.get(i));
 					currObs.remove(i);
 					i--;
 				}
@@ -173,9 +189,47 @@ public class GameFrame extends JFrame implements ActionListener
 					currObs.get(i).update();
 					if (player.isTouching(currObs.get(i)) && !(currObs.get(i) instanceof Planks))
 					{
-						died = true;
+						if (currObs.get(i) instanceof EnemyNinja)
+						{
+							EnemyNinja n = (EnemyNinja)currObs.get(i);
+							if (!n.isKilled()) {
+								died = true;
+							}
+						}
+						else {
+							died = true;
+						}
 					}
 				}
+			}
+		}
+		
+		for (int i = 0; i < stars.size(); i++) //update shurikens
+		{
+			if (hasStarted)
+			{
+				stars.get(i).update(gameSpeed);
+				for (int j = 0; j < currObs.size(); j++)
+				{
+					if (currObs.get(j) instanceof EnemyNinja && stars.get(i).isTouching(currObs.get(j)))
+					{
+						EnemyNinja n = (EnemyNinja)currObs.get(j);
+						n.kill();
+						background.removeFromGame(stars.get(i));
+						stars.remove(stars.get(i));
+						i--;
+					}
+//					else if ()
+//					{
+//						//shuriken touch weakspot
+//					}
+				}
+			}
+			else
+			{
+				background.removeFromGame(stars.get(i));
+				stars.remove(stars.get(i));
+				i--;
 			}
 		}
 		
@@ -185,6 +239,13 @@ public class GameFrame extends JFrame implements ActionListener
 			player.setAction("Dead");
 		}
 		
+	}
+	
+	public void shootStar()
+	{
+		NinjaStar star = new NinjaStar(player.getX() + player.getWidth() / 2, player.getY() + player.getHeight() / 2, 30, 30);
+		background.addToGame(star);
+		stars.add(star);
 	}
 	
 	public void spawnNewObs()

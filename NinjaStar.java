@@ -1,4 +1,8 @@
+import java.awt.Rectangle;
+
+import javax.swing.ImageIcon;
 import javax.swing.JComponent;
+import javax.swing.JLabel;
 
 /**
  * 
@@ -6,15 +10,37 @@ import javax.swing.JComponent;
  * ninja star
  *
  */
-public class NinjaStar extends Obstacles
+public class NinjaStar extends JComponent
 {
-	private int speed;
 	
+	private int mvtCount;
+	private JLabel hsurieken;
 	
-	public NinjaStar(int x, int y, int size, int speed)
+	public NinjaStar(int x, int y, int w, int h)
 	{
-		setLocation(x, y);
-		setSize(size, size);
+		
+		setBounds(x, y, w, h);
+		hsurieken = new JLabel(new ImageIcon("Ninja Star-1.png"));
+		hsurieken.setBounds(0, 0, w, h);
+		add(hsurieken);
+		mvtCount = 1;
+		
+	}
+	
+	public void update(int gameSpeed)
+	{
+		mvtCount++;
+		if (mvtCount == 3)
+			mvtCount = 1;
+		hsurieken.setIcon(new ImageIcon("Ninja Star-" + mvtCount + ".png"));
+		setLocation(getX() + gameSpeed, getY());
+	}
+	
+	public boolean isTouching(Obstacles block)
+	{
+		
+		return getBounds().intersects(block.getBounds());
+		
 	}
 	
 }
