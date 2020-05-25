@@ -35,7 +35,7 @@ public class GameFrame extends JFrame implements ActionListener
 	private int slideTimeMs = 750;
 	private boolean threwStar;
 	private int timeThrewStar;
-	private int ninjaStarTimeMs = 800;
+	private int ninjaStarTimeMs = 1500;
 	private boolean died;
 	
 	private int gameTickRateMs = 30;
@@ -214,10 +214,13 @@ public class GameFrame extends JFrame implements ActionListener
 					if (currObs.get(j) instanceof EnemyNinja && stars.get(i).isTouching(currObs.get(j)))
 					{
 						EnemyNinja n = (EnemyNinja)currObs.get(j);
-						n.kill();
-						background.removeFromGame(stars.get(i));
-						stars.remove(stars.get(i));
-						i--;
+						if (!n.isKilled())
+						{
+							n.kill();
+							background.removeFromGame(stars.get(i));
+							stars.remove(stars.get(i));
+							i--;
+						}
 					}
 //					else if ()
 //					{
