@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 /**
  * 
  * @author Ben Dai, Leon Li, Eric Han, Phillip Zhang
- * main player ninja v1
+ * main player ninja v2
  *
  */
 public class PlayerNinja extends JComponent
