@@ -20,10 +20,12 @@ eric's sprites:
 
 (obstacles)
 -enemy ninja!
+-enemy ninja dead
 -spike wall!
 -spike ball!
 -caltrops!
--door/gate + button!
+-wood planks w/ weak spot
+-wood planks destroyed
 -ninja star (in progress) 
 
 (background)
