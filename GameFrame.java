@@ -94,7 +94,9 @@ public class GameFrame extends JFrame implements ActionListener
          * DoorWithButton door;
          * CeilingSpikeBall spikeBall;
          * EnemyNinja enemyNinja;
-         * Caltrops caltrops;
+         * Caltrops caltrop;
+         * Caltrops caltrop2;
+         * Caltrops caltrop3;
          * SpikeWall spikeWall;
          * int obstacle = (int)(Math.random()*5)+1;
          * if(obstacle == 1)
@@ -117,9 +119,21 @@ public class GameFrame extends JFrame implements ActionListener
          * }
          * else if(obstacle == 4)
          * {
-         *         caltrops = new Caltrops(2000, , ,);
-         *         currObs.add(caltrops);
-         *         background.addToGame(caltrops);
+         *         caltrop = new Caltrops(2000, , ,);
+         *         currObs.add(caltrop);
+         *         background.addToGame(caltrop);
+         *         if(t > 1000)
+         *         {
+         *         	caltrop2 = new Caltrops(2000, , ,);
+         *         	currObs.add(caltrop2);
+         *        	 background.addToGame(caltrop2);
+         *         }
+         *         if(t > 2000)
+         *         {
+         *         	caltrop3 = new Caltrops(2000, , ,);
+         *         	currObs.add(caltrop3);
+         *         	background.addToGame(caltrop3);
+         *         }
          * }
          * else if(obstacle == 5)
          * {
