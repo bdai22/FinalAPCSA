@@ -56,7 +56,7 @@ public class GameFrame extends JFrame implements ActionListener
 		
 		background = bkgrnd;
 		
-		player = new PlayerNinja(200, 700, 108, 122);
+		player = new PlayerNinja(200, 720, 108, 122);
 		background.addToGame(player);
 		
 		this.addKeyListener(new KeyListener() {
@@ -71,13 +71,13 @@ public class GameFrame extends JFrame implements ActionListener
 					hasStarted = true;
 					background.removeStart();
 				}
-				else if (e.getKeyCode() == e.VK_W && player.getY() == 700 && !jumping)
+				else if (e.getKeyCode() == e.VK_W && player.getY() == 720 && !jumping)
 				{
 					velocity = -23;
 					jumping = true;
 					player.setAction("Jump");
 				}
-				else if (e.getKeyCode() == e.VK_S && player.getY() == 700 && !sliding)
+				else if (e.getKeyCode() == e.VK_S && player.getY() == 720 && !sliding)
 				{
 					sliding = true;
 					player.setAction("Slide");
@@ -143,10 +143,10 @@ public class GameFrame extends JFrame implements ActionListener
 		{
 			player.setLocation(200, player.getY() + velocity);
 			velocity = velocity + 1;	
-			if (player.getY() >= 700)
+			if (player.getY() >= 720)
 			{
 				velocity = 0;
-				player.setLocation(200, 700);
+				player.setY(720);
 				jumping = false;
 				player.setAction("Run");
 			}
