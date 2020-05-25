@@ -14,4 +14,9 @@ public abstract class Obstacles extends JComponent
 		repaint();
 	}
 	
+	public void setX(int x)
+	{
+		setLocation(x, getY());
+	}
+	
 }
