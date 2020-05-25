@@ -1,5 +1,3 @@
-import java.awt.geom.Rectangle2D;
-
 import javax.swing.JComponent;
 
 /**
@@ -10,5 +8,10 @@ import javax.swing.JComponent;
  */
 public abstract class Obstacles extends JComponent
 {
+	
+	public void update()
+	{
+		repaint();
+	}
 	
 }
