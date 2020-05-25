@@ -13,7 +13,7 @@ import javax.swing.Timer;
 /**
  * 
  * @author Ben Dai, Leon Li, Eric Han, Phillip Zhang
- * main frame v3
+ * main frame v4
  *
  */
 public class GameFrame extends JFrame implements ActionListener
@@ -154,13 +154,13 @@ public class GameFrame extends JFrame implements ActionListener
          *         background.addToGame(caltrop);
          *         if(t > 1000)
          *         {
-         *         	caltrop2 = new Caltrops(2100, , ,);
+         *         	caltrop2 = new Caltrops(2000, , ,);
          *         	currObs.add(caltrop2);
          *        	 background.addToGame(caltrop2);
          *         }
          *         if(t > 2000)
          *         {
-         *         	caltrop3 = new Caltrops(2200, , ,);
+         *         	caltrop3 = new Caltrops(2000, , ,);
          *         	currObs.add(caltrop3);
          *         	background.addToGame(caltrop3);
          *         }
