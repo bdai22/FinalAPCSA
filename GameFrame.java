@@ -27,8 +27,9 @@ public class GameFrame extends JFrame implements ActionListener
 	private PlayerNinja player;
 	private ArrayList<Obstacles> currObs;
 	private int velocity;
+	private int objVelocity; 
 	private boolean jumping;
-	
+	private boolean sliding;
 	public GameFrame()
 	{
 		
@@ -57,15 +58,19 @@ public class GameFrame extends JFrame implements ActionListener
 			public void keyPressed(KeyEvent e)
 			{
 				
-				if (e.getKeyCode() == e.VK_SPACE && !hasStarted)
+				if(e.getKeyCode() == e.VK_SPACE && !hasStarted)
 				{
 					hasStarted = true;
 					background.removeStart();
 				}
-				if (e.getKeyCode() == e.VK_W && player.getY() == 700)
+				if(e.getKeyCode() == e.VK_W && player.getY() == 700)
 				{
 					velocity = -23;
 					jumping = true;
+				}
+				if(e.getKeyCode() == e.VK_S && player.getY() == 700)
+				{
+					sliding = true; 
 				}
 			}
 
@@ -125,7 +130,7 @@ public class GameFrame extends JFrame implements ActionListener
 			if(player.getY() >= 700)
 			{
 				velocity = 0;
-				player.setLocation(200, 700);
+				player.setY(700);
 				jumping = false; 
 			}
 		}
