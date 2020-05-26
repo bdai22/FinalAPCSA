@@ -1,6 +1,13 @@
 # FinalAPCSA
 Ninja Run 
 
+CONTROLS:
+
+W - jump
+S - slide
+R - restart game
+SPACE - start game/throw shuriken
+
 #TO-DO:
 
 eric's sprites:
@@ -32,7 +39,7 @@ eric's sprites:
 -floor!
 
 (extras)
--MUSIC!
+-MUSIC lobby + in game!
 -SFX (NO)
 
 Polishing:
