@@ -385,7 +385,7 @@ public class GameFrame extends JFrame implements ActionListener
 		SpikeWall spikeWall3;
 		WoodWall woodWall;
 		WeakSpot weakSpot;
-		int obstacle = 3;//(int)(Math.random()*5+1);
+		int obstacle = (int)(Math.random()*5+1);
 		if(obstacle == 1)
 		{
 		        woodWall = new WoodWall(2000, 0, 48, 900);
