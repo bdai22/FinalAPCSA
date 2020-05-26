@@ -49,6 +49,8 @@ public class GameFrame extends JFrame implements ActionListener
 	private int backSpeed = 0;
 	private int currentGround = 1;
 	
+	private MusicPlayer gameMusic;
+	
 	public GameFrame()
 	{
 		
@@ -96,6 +98,9 @@ public class GameFrame extends JFrame implements ActionListener
 					hasStarted = true;
 					background.removeStart();
 					spawnNewObs();
+					
+					gameMusic = new MusicPlayer();
+					gameMusic.start();
 				}
 				else if (e.getKeyCode() == e.VK_SPACE && !hasStarted && died)
 				{
@@ -136,6 +141,10 @@ public class GameFrame extends JFrame implements ActionListener
 					accuGameSpeed = 0;
 					
 					spawnNewObs();
+					
+					gameMusic.stopMusic();
+					gameMusic = new MusicPlayer();
+					gameMusic.start();
 				}
 				else if (e.getKeyCode() == e.VK_SPACE && hasStarted && !threwStar && !sliding)
 				{
