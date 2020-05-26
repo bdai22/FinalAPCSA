@@ -46,6 +46,8 @@ public class GameFrame extends JFrame implements ActionListener
 	private int gameTickRateMs = 30;
 	private int gameSpeed = 14;
 	private int accuGameSpeed = 0;
+	private int backSpeed = 0;
+	private int currentGround = 1;
 	
 	public GameFrame()
 	{
@@ -261,6 +263,34 @@ public class GameFrame extends JFrame implements ActionListener
 					}
 				}
 			}
+		}
+		
+		if (!died)
+		{
+			backSpeed += gameSpeed;
+			if (backSpeed > 2000)
+			{
+				backSpeed %= 1920;
+				int offset = 2000 - backSpeed;
+				if (currentGround == 1)
+				{
+					currentGround = 2;
+					background.setGroundX(offset);
+				}
+				else
+				{
+					currentGround = 1;
+					background.setGround2X(offset);
+				}
+				
+
+			}
+			
+
+			background.setGroundX(background.getGroundX() - gameSpeed);
+			background.setGround2X(background.getGround2X() - gameSpeed);
+
+				
 		}
 		
 		for (int i = 0; i < stars.size(); i++) //update shurikens

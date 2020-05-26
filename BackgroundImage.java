@@ -26,6 +26,7 @@ public class BackgroundImage extends JPanel
 	private JLabel startPrompt;
 	private JLabel score;
 	private JLabel ground;
+	private JLabel ground2;
 	private ArrayList<JLabel> gameOverScreen;
 
 	public BackgroundImage(int w, int h)
@@ -55,6 +56,10 @@ public class BackgroundImage extends JPanel
 		ground = new JLabel(new ImageIcon("Better Ground.png"));
 		ground.setBounds(0, 780, 2000, 500);
 		label.add(ground);
+		
+		ground2 = new JLabel(new ImageIcon("Better Ground.png"));
+		ground2.setBounds(1920, 780, 2000, 500);
+		label.add(ground2);
 		
 		setVisible(true);
 		
@@ -91,6 +96,26 @@ public class BackgroundImage extends JPanel
 	{
 		this.score.setText(Integer.toString(score));
 		repaint();
+	}
+	
+	public void setGroundX(int x)
+	{
+		ground.setLocation(x, ground.getY());
+	}
+	
+	public int getGroundX()
+	{
+		return ground.getX();
+	}
+	
+	public void setGround2X(int x)
+	{
+		ground2.setLocation(x, ground2.getY());
+	}
+	
+	public int getGround2X()
+	{
+		return ground2.getX();
 	}
 	
 	public void displayGameOver(int score, int timesJumped, int timesSlid, int timesUsedStars, int timesKilledEnemy, int timesDestroyedWall)
