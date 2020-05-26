@@ -100,7 +100,6 @@ public class GameFrame extends JFrame implements ActionListener
 					
 					hasStarted = true;
 					background.removeStart();
-					spawnNewObs();
 					
 					score = 0;
 					player.setAction("Run");
@@ -132,6 +131,8 @@ public class GameFrame extends JFrame implements ActionListener
 					
 					gameSpeed = 14;
 					accuGameSpeed = 0;
+					
+					spawnNewObs();
 				}
 				else if (e.getKeyCode() == e.VK_SPACE && hasStarted && !threwStar && !sliding)
 				{
