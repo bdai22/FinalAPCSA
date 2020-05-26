@@ -99,7 +99,7 @@ public class GameFrame extends JFrame implements ActionListener
 					background.removeStart();
 					spawnNewObs();
 					
-					gameMusic = new MusicPlayer();
+					gameMusic = new MusicPlayer("EpicNinjaMusic.wav");
 					gameMusic.start();
 				}
 				else if (e.getKeyCode() == e.VK_SPACE && !hasStarted && died)
@@ -143,7 +143,7 @@ public class GameFrame extends JFrame implements ActionListener
 					spawnNewObs();
 					
 					gameMusic.stopMusic();
-					gameMusic = new MusicPlayer();
+					gameMusic = new MusicPlayer("EpicNinjaMusic.wav");
 					gameMusic.start();
 				}
 				else if (e.getKeyCode() == e.VK_SPACE && hasStarted && !threwStar && !sliding)

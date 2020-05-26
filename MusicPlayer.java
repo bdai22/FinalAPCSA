@@ -17,7 +17,14 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 public class MusicPlayer extends Thread
 {
 	
-	private boolean hasStopped = false;
+	private boolean hasStopped;
+	private String filePath;
+	
+	public MusicPlayer(String filePath)
+	{
+		this.filePath = filePath;
+		hasStopped = false;
+	}
 	
 	public void stopMusic()
 	{
@@ -30,7 +37,7 @@ public class MusicPlayer extends Thread
 	{
 		
 		int BUFFER_SIZE = 4096;
-		File audioFile = new File("EpicNinjaMusic.wav");
+		File audioFile = new File(filePath);
 		
         try
         {
