@@ -25,6 +25,12 @@ public abstract class Obstacles extends JComponent
 		showImage.setIcon(img);
 	}
 	
+	public void setImgBounds(int width, int height) //only for woodwall
+	{
+		showImage.setBounds(0, 0, width, height);
+		setSize(width, height);
+	}
+	
 	public void update()
 	{
 		repaint();

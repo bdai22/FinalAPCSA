@@ -187,12 +187,19 @@ public class GameFrame extends JFrame implements ActionListener
 				{
 					currObs.get(i).setX(currObs.get(i).getX() - gameSpeed);
 					currObs.get(i).update();
-					if (player.isTouching(currObs.get(i)) && !(currObs.get(i) instanceof Planks))
+					if (player.isTouching(currObs.get(i)))
 					{
 						if (currObs.get(i) instanceof EnemyNinja)
 						{
 							EnemyNinja n = (EnemyNinja)currObs.get(i);
 							if (!n.isKilled()) {
+								died = true;
+							}
+						}
+						else if (currObs.get(i) instanceof WoodWall)
+						{
+							WoodWall w = (WoodWall)currObs.get(i);
+							if (!w.isDestroyed()) {
 								died = true;
 							}
 						}
@@ -218,20 +225,29 @@ public class GameFrame extends JFrame implements ActionListener
 						{
 							n.kill();
 							background.removeFromGame(stars.get(i));
-							stars.remove(stars.get(i));
+							stars.remove(i);
 							i--;
 						}
 					}
-//					else if ()
-//					{
-//						//shuriken touch weakspot
-//					}
+					else if (currObs.get(j) instanceof WeakSpot && stars.get(i).isTouching(currObs.get(j)))
+					{
+						WeakSpot s = (WeakSpot)currObs.get(j);
+						if (!s.isDestroyed())
+						{
+							s.destroy();
+							background.removeFromGame(stars.get(i));
+							stars.remove(i);
+							i--;
+							background.removeFromGame(currObs.get(j));
+							currObs.remove(j);
+						}
+					}
 				}
 			}
 			else
 			{
 				background.removeFromGame(stars.get(i));
-				stars.remove(stars.get(i));
+				stars.remove(i);
 				i--;
 			}
 		}
@@ -268,17 +284,23 @@ public class GameFrame extends JFrame implements ActionListener
 		SpikeWall spikeWall;
 		SpikeWall spikeWall2;
 		SpikeWall spikeWall3;
-		Planks woodWall;
-		Planks woodWall2;
-		Planks woodWall3;
-		int obstacle = 2;//(int)(Math.random()*5+1);
-		/*if(obstacle == 1)
+		WoodWall woodWall;
+		WeakSpot weakSpot;
+		int obstacle = 1;//(int)(Math.random()*5+1);
+		if(obstacle == 1)
 		{
-		        woodWall = new WoodWall(2000, , ,);
+		        woodWall = new WoodWall(2000, 0, 48, 900);
+
+		        
+		        int yPos = (int)(Math.random() * 200) + 500;
+		        weakSpot = new WeakSpot(2000, yPos, 48, 48, woodWall);
+		        currObs.add(weakSpot);
+		        background.addToGame(weakSpot);
+		        
 		        currObs.add(woodWall);
 		        background.addToGame(woodWall);
 		}
-		else*/ if(obstacle == 2)
+		else if(obstacle == 2)
 		{
 		        spikeBall = new CeilingSpikeBall(2000, -125, 70, 900);
 		        currObs.add(spikeBall);
