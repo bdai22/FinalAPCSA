@@ -53,11 +53,11 @@ public class BackgroundImage extends JPanel
 		startPrompt.setForeground(Color.BLACK);
 		label.add(startPrompt);
 		
-		ground = new JLabel(new ImageIcon("Better Ground.png"));
+		ground = new JLabel(new ImageIcon("Better Ground 2.png"));
 		ground.setBounds(0, 780, 2000, 500);
 		label.add(ground);
 		
-		ground2 = new JLabel(new ImageIcon("Better Ground.png"));
+		ground2 = new JLabel(new ImageIcon("Better Ground 2.png"));
 		ground2.setBounds(1920, 780, 2000, 500);
 		label.add(ground2);
 		
