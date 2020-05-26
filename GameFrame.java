@@ -88,7 +88,7 @@ public class GameFrame extends JFrame implements ActionListener
 		
 		background = bkgrnd;
 		
-		player = new PlayerNinja(200, 720, 108, 122);
+		player = new PlayerNinja(200, 715, 120, 132);
 		background.addToGame(player);
 		
 		gameMusic = new MusicPlayer("RelaxingMusic.wav");
@@ -113,7 +113,7 @@ public class GameFrame extends JFrame implements ActionListener
 				}
 				else if (e.getKeyCode() == e.VK_R && !hasStarted && died)
 				{
-					player.setY(720);
+					player.setY(715);
 					
 					hasStarted = true;
 					background.removeStart();
@@ -162,14 +162,14 @@ public class GameFrame extends JFrame implements ActionListener
 					timeThrewStar = 0;
 					timesUsedStars++;
 				}
-				else if (e.getKeyCode() == e.VK_W && player.getY() == 720 && !jumping && !isReallySliding && !died)
+				else if (e.getKeyCode() == e.VK_W && player.getY() == 715 && !jumping && !isReallySliding && !died)
 				{
 					velocity = -31;
 					jumping = true;
 					player.setAction("Jump");
 					timesJumped++;
 				}
-				else if (e.getKeyCode() == e.VK_S && player.getY() == 720 && !sliding && !jumping && !died)
+				else if (e.getKeyCode() == e.VK_S && player.getY() == 715 && !sliding && !jumping && !died)
 				{
 					sliding = true;
 					isPressingToSlide = true;
@@ -205,10 +205,10 @@ public class GameFrame extends JFrame implements ActionListener
 		{
 			player.setY(player.getY() + velocity);
 			velocity = velocity + 2;	
-			if (player.getY() >= 720)
+			if (player.getY() >= 715)
 			{
 				velocity = 0;
-				player.setY(720);
+				player.setY(715);
 				jumping = false;
 				if (!died)
 					player.setAction("Run");
@@ -425,18 +425,18 @@ public class GameFrame extends JFrame implements ActionListener
 		}
 		else if(obstacle == 2)
 		{
-		        spikeBall = new CeilingSpikeBall(2000, -125, 70, 900);
+		        spikeBall = new CeilingSpikeBall(2000, -100, 70, 900);
 		        currObs.add(spikeBall);
 		        background.addToGame(spikeBall);
 		        if(score > 500)
 		        {
-		        	spikeBall2 = new CeilingSpikeBall(2090, -125, 70, 900);
+		        	spikeBall2 = new CeilingSpikeBall(2090, -100, 70, 900);
 		        	currObs.add(spikeBall2);
 		        	background.addToGame(spikeBall2);
 		        }
 		        if(score > 1250)
 		        {
-		        	spikeBall3 = new CeilingSpikeBall(2180, -125, 70, 900);
+		        	spikeBall3 = new CeilingSpikeBall(2180, -100, 70, 900);
 		        	currObs.add(spikeBall3);
 		        	background.addToGame(spikeBall3);
 		        }

@@ -95,7 +95,7 @@ public class PlayerNinja extends JComponent
 		}
 		else //check hit reg while sliding
 		{
-			Rectangle bounds = new Rectangle(getX(), getY() + getHeight() / 2, getWidth(), getHeight() / 2);
+			Rectangle bounds = new Rectangle(getX(), getY() + getHeight() / 3 * 2, getWidth(), getHeight() / 3);
 			return bounds.intersects(block.getBounds());
 		}
 		
