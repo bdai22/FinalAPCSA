@@ -27,6 +27,7 @@ public class EnemyNinja extends Obstacles
 	
 	public void kill()
 	{
+		setImgPosY(25);
 		killed = true;
 		setImgIcon(new ImageIcon("DeadEnemy.png"));
 		setLocation(getX(), getY() + 20);

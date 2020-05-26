@@ -385,7 +385,7 @@ public class GameFrame extends JFrame implements ActionListener
 		SpikeWall spikeWall3;
 		WoodWall woodWall;
 		WeakSpot weakSpot;
-		int obstacle = (int)(Math.random()*5+1);
+		int obstacle = 3;//(int)(Math.random()*5+1);
 		if(obstacle == 1)
 		{
 		        woodWall = new WoodWall(2000, 0, 48, 900);
@@ -420,18 +420,18 @@ public class GameFrame extends JFrame implements ActionListener
 		}
 		else if(obstacle == 3)
 		{
-		        enemyNinja = new EnemyNinja(2000, 720, 145, 145);
+		        enemyNinja = new EnemyNinja(2000, 700, 145, 145);
 		        currObs.add(enemyNinja);
 		        background.addToGame(enemyNinja);
 		        if(score > 1000)
 		        {
-		        	enemyNinja1 = new EnemyNinja(2125, 720, 145, 145);
+		        	enemyNinja1 = new EnemyNinja(2125, 700, 145, 145);
 		        	currObs.add(enemyNinja1);
 		        	background.addToGame(enemyNinja1);
 		        }
 		        if(score > 2000)
 		        {
-		        	enemyNinja2 = new EnemyNinja(2250, 720, 145, 145);
+		        	enemyNinja2 = new EnemyNinja(2250, 700, 145, 145);
 		        	currObs.add(enemyNinja2);
 		        	background.addToGame(enemyNinja2);
 		        }
