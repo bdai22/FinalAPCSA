@@ -32,5 +32,5 @@ eric's sprites:
 -floor!
 
 (extras)
--MUSIC
--SFX
+-MUSIC!
+-SFX (NO)
