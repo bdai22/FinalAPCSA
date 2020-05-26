@@ -16,17 +16,17 @@ eric's sprites:
 -roll2!
 -jumpthrow (cancelled)
 -runthrow (cancelled)
--death
+-death!
 
 (obstacles)
 -enemy ninja!
--enemy ninja dead
+-enemy ninja dead!
 -spike wall!
 -spike ball!
 -caltrops!
--wood planks w/ weak spot
--wood planks destroyed
--ninja star (in progress) 
+-wood planks w/ weak spot!
+-wood planks destroyed!
+-ninja star (in progress) !!!
 
 (background)
 -floor!
