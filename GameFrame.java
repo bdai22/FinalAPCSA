@@ -46,7 +46,8 @@ public class GameFrame extends JFrame implements ActionListener
 	private boolean died;
 	
 	private int gameTickRateMs = 30;
-	private int gameSpeed = 14;
+	private int gameSpeed = 22;
+	private int baseGameSpeed = gameSpeed;
 	private int accuGameSpeed = 0;
 	private int backSpeed = 0;
 	private int currentGround = 1;
@@ -145,7 +146,7 @@ public class GameFrame extends JFrame implements ActionListener
 					timeThrewStar = 0;
 					died = false;
 					
-					gameSpeed = 14;
+					gameSpeed = baseGameSpeed;
 					accuGameSpeed = 0;
 					
 					spawnNewObs();
@@ -163,7 +164,7 @@ public class GameFrame extends JFrame implements ActionListener
 				}
 				else if (e.getKeyCode() == e.VK_W && player.getY() == 720 && !jumping && !isReallySliding && !died)
 				{
-					velocity = -23;
+					velocity = -31;
 					jumping = true;
 					player.setAction("Jump");
 					timesJumped++;
@@ -203,7 +204,7 @@ public class GameFrame extends JFrame implements ActionListener
 		if (jumping) //jump
 		{
 			player.setY(player.getY() + velocity);
-			velocity = velocity + 1;	
+			velocity = velocity + 2;	
 			if (player.getY() >= 720)
 			{
 				velocity = 0;
@@ -245,7 +246,7 @@ public class GameFrame extends JFrame implements ActionListener
 		
 		if (score > 500) //update speed of game for difficulty
 		{
-			gameSpeed = 14 + (score - 500) / 500;
+			gameSpeed = baseGameSpeed + (score - 500) / 175;
 		}
 		
 		if (hasStarted) //update score
@@ -257,7 +258,7 @@ public class GameFrame extends JFrame implements ActionListener
 		if (hasStarted)
 		{
 			accuGameSpeed += gameSpeed; //update game obstacles
-			if (accuGameSpeed > 1720)
+			if (accuGameSpeed > 1320)
 			{
 				accuGameSpeed = 0;
 				spawnNewObs();
@@ -343,6 +344,7 @@ public class GameFrame extends JFrame implements ActionListener
 							stars.remove(i);
 							i--;
 							timesKilledEnemy++;
+							break;
 						}
 					}
 					else if (currObs.get(j) instanceof WeakSpot && stars.get(i).isTouching(currObs.get(j)))
@@ -358,6 +360,7 @@ public class GameFrame extends JFrame implements ActionListener
 							currObs.remove(j);
 							j--;
 							timesDestroyedWall++;
+							break;
 						}
 					}
 				}
@@ -445,13 +448,13 @@ public class GameFrame extends JFrame implements ActionListener
 		        background.addToGame(enemyNinja);
 		        if(score > 1000)
 		        {
-		        	enemyNinja1 = new EnemyNinja(2125, 700, 145, 145);
+		        	enemyNinja1 = new EnemyNinja(2200, 700, 145, 145);
 		        	currObs.add(enemyNinja1);
 		        	background.addToGame(enemyNinja1);
 		        }
 		        if(score > 2000)
 		        {
-		        	enemyNinja2 = new EnemyNinja(2250, 700, 145, 145);
+		        	enemyNinja2 = new EnemyNinja(2400, 700, 145, 145);
 		        	currObs.add(enemyNinja2);
 		        	background.addToGame(enemyNinja2);
 		        }
