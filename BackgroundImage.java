@@ -130,8 +130,8 @@ public class BackgroundImage extends JPanel
 		labelContainer.add(gOver);
 		gameOverScreen.add(gOver);
 		
-		JLabel gOverPrompt = new JLabel("Press 'SPACE' to try again!");
-		gOverPrompt.setBounds(800, 135, 1000, 250);
+		JLabel gOverPrompt = new JLabel("Press 'R' to try again!");
+		gOverPrompt.setBounds(840, 135, 1000, 250);
 		gOverPrompt.setFont(new Font("", Font.PLAIN, 25));
 		gOverPrompt.setForeground(Color.BLACK);
 		labelContainer.add(gOverPrompt);

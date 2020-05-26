@@ -36,6 +36,8 @@ public class GameFrame extends JFrame implements ActionListener
 	private int velocity;
 	private boolean jumping;
 	private boolean sliding;
+	private boolean isPressingToSlide;
+	private boolean isReallySliding;
 	private int timeSlid;
 	private int slideTimeMs = 1250;
 	private boolean threwStar;
@@ -76,6 +78,8 @@ public class GameFrame extends JFrame implements ActionListener
 		threwStar = false;
 		timeThrewStar = 0;
 		died = false;
+		isPressingToSlide = false;
+		isReallySliding = false;
 		
 		BackgroundImage bkgrnd = new BackgroundImage(getWidth(), getHeight());
 		bkgrnd.setLocation(0, 0);
@@ -106,7 +110,7 @@ public class GameFrame extends JFrame implements ActionListener
 					gameMusic = new MusicPlayer("EpicNinjaMusic.wav");
 					gameMusic.start();
 				}
-				else if (e.getKeyCode() == e.VK_SPACE && !hasStarted && died)
+				else if (e.getKeyCode() == e.VK_R && !hasStarted && died)
 				{
 					player.setY(720);
 					
@@ -150,14 +154,14 @@ public class GameFrame extends JFrame implements ActionListener
 					gameMusic = new MusicPlayer("EpicNinjaMusic.wav");
 					gameMusic.start();
 				}
-				else if (e.getKeyCode() == e.VK_SPACE && hasStarted && !threwStar && !sliding)
+				else if (e.getKeyCode() == e.VK_SPACE && hasStarted && !threwStar && !isReallySliding)
 				{
 					shootStar();
 					threwStar = true;
 					timeThrewStar = 0;
 					timesUsedStars++;
 				}
-				else if (e.getKeyCode() == e.VK_W && player.getY() == 720 && !jumping && !sliding && !died)
+				else if (e.getKeyCode() == e.VK_W && player.getY() == 720 && !jumping && !isReallySliding && !died)
 				{
 					velocity = -23;
 					jumping = true;
@@ -167,13 +171,21 @@ public class GameFrame extends JFrame implements ActionListener
 				else if (e.getKeyCode() == e.VK_S && player.getY() == 720 && !sliding && !jumping && !died)
 				{
 					sliding = true;
+					isPressingToSlide = true;
+					isReallySliding = true;
 					player.setAction("Slide");
 					timeSlid = 0;
 					timesSlid++;
 				}
 			}
 
-			public void keyReleased(KeyEvent e) {}
+			public void keyReleased(KeyEvent e)
+			{
+				if (e.getKeyCode() == e.VK_S)
+				{
+					isPressingToSlide = false;
+				}
+			}
 			
 		});
 		
@@ -205,10 +217,18 @@ public class GameFrame extends JFrame implements ActionListener
 		if (sliding && !died) //slide
 		{
 			timeSlid++;
+			if (!isPressingToSlide)
+			{
+				if (!jumping)
+					player.setAction("Run");
+				isReallySliding = false;
+			}
 			if (timeSlid * gameTickRateMs >= slideTimeMs)
 			{
-				player.setAction("Run");
+				if (!jumping)
+					player.setAction("Run");
 				sliding = false;
+				isReallySliding = false;
 			}
 		}
 		
