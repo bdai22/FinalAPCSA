@@ -55,6 +55,7 @@ public class GameFrame extends JFrame implements ActionListener
 		setResizable(false);
 		setLayout(null);
 		
+		
 		hasStarted = false;
 		velocity = 0;
 		score = 0;
@@ -349,11 +350,12 @@ public class GameFrame extends JFrame implements ActionListener
 		        
 		        int yPos = (int)(Math.random() * 200) + 500;
 		        weakSpot = new WeakSpot(2000, yPos, 48, 48, woodWall);
-		        currObs.add(weakSpot);
-		        background.addToGame(weakSpot);
+
 		        
 		        currObs.add(woodWall);
 		        background.addToGame(woodWall);
+		        currObs.add(weakSpot);
+		        background.addToGame(weakSpot);
 		}
 		else if(obstacle == 2)
 		{

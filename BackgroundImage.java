@@ -9,6 +9,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 /**
@@ -21,6 +22,7 @@ public class BackgroundImage extends JPanel
 {
 	
 	private JLabel labelContainer;
+	private JLayeredPane layers;
 	private JLabel startPrompt;
 	private JLabel score;
 	private JLabel ground;
@@ -34,9 +36,13 @@ public class BackgroundImage extends JPanel
 		
 		gameOverScreen = new ArrayList<JLabel>();
 		
+		layers = new JLayeredPane();
+		layers.setBounds(0, 0, w, h);
+		add(layers);
+		
 		JLabel label = new JLabel(new ImageIcon("NinjaBackground.jpg"));
 		label.setBounds(0, 0, getWidth(), getHeight());
-		add(label);
+		layers.add(label, 2);
 		
 		labelContainer = label;
 		
@@ -46,8 +52,8 @@ public class BackgroundImage extends JPanel
 		startPrompt.setForeground(Color.BLACK);
 		label.add(startPrompt);
 		
-		ground = new JLabel(new ImageIcon("Ground 1.png"));
-		ground.setBounds(0, 0, 1920, 1080);
+		ground = new JLabel(new ImageIcon("Better Ground.png"));
+		ground.setBounds(0, 780, 2000, 500);
 		label.add(ground);
 		
 		setVisible(true);
@@ -73,12 +79,12 @@ public class BackgroundImage extends JPanel
 	
 	public void addToGame(JComponent jc)
 	{
-		labelContainer.add(jc);
+		layers.add(jc, 0);
 	}
 	
 	public void removeFromGame(JComponent jc)
 	{
-		labelContainer.remove(jc);
+		layers.remove(jc);
 	}
 	
 	public void updateScore(int score)
