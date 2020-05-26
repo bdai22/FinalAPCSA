@@ -292,6 +292,7 @@ public class GameFrame extends JFrame implements ActionListener
 							i--;
 							background.removeFromGame(currObs.get(j));
 							currObs.remove(j);
+							j--;
 							timesDestroyedWall++;
 						}
 					}
