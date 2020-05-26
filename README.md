@@ -36,9 +36,9 @@ eric's sprites:
 -SFX (NO)
 
 Polishing:
--Skins
--Start menu
+-skins (NO)
+-Start menu (NO)
 -game harder
--different sound tracks?
-- wall easier
+-different sound tracks? (NO)
+- wall easier (NO)
 - fix running
