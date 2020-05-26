@@ -154,7 +154,7 @@ public class GameFrame extends JFrame implements ActionListener
 			}
 		}
 		
-		player.update(); //anims
+		player.update(); //animations
 		
 		if (score > 500) //update speed of game for difficulty
 		{
