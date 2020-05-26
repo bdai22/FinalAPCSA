@@ -30,3 +30,7 @@ eric's sprites:
 
 (background)
 -floor!
+
+(extras)
+-MUSIC
+-SFX
