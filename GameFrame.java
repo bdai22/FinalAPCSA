@@ -27,6 +27,11 @@ public class GameFrame extends JFrame implements ActionListener
 	private PlayerNinja player;
 	private ArrayList<Obstacles> currObs;
 	private ArrayList<NinjaStar> stars;
+	private int timesJumped;
+	private int timesSlid;
+	private int timesUsedStars;
+	private int timesKilledEnemy;
+	private int timesDestroyedWall;
 	
 	private int velocity;
 	private boolean jumping;
@@ -51,7 +56,13 @@ public class GameFrame extends JFrame implements ActionListener
 		setLayout(null);
 		
 		hasStarted = false;
+		velocity = 0;
 		score = 0;
+		timesJumped = 0;
+		timesSlid = 0;
+		timesUsedStars = 0;
+		timesKilledEnemy = 0;
+		timesDestroyedWall = 0;
 		currObs = new ArrayList<Obstacles>();
 		stars = new ArrayList<NinjaStar>();
 		jumping = false;
@@ -85,25 +96,63 @@ public class GameFrame extends JFrame implements ActionListener
 				}
 				else if (e.getKeyCode() == e.VK_SPACE && !hasStarted && died)
 				{
-					//unfinished restart game
+					player.setY(720);
+					
+					hasStarted = true;
+					background.removeStart();
+					spawnNewObs();
+					
+					score = 0;
+					player.setAction("Run");
+					for (int i = 0; i < currObs.size(); i++)
+					{
+						background.removeFromGame(currObs.get(i));
+						currObs.remove(i);
+						i--;
+					}
+					for (int i = 0; i < stars.size(); i++)
+					{
+						background.removeFromGame(stars.get(i));
+						stars.remove(i);
+						i--;
+					}
+					timesJumped = 0;
+					timesSlid = 0;
+					timesUsedStars = 0;
+					timesKilledEnemy = 0;
+					timesDestroyedWall = 0;
+					
+					velocity = 0;
+					jumping = false;
+					sliding = false;
+					timeSlid = 0;
+					threwStar = false;
+					timeThrewStar = 0;
+					died = false;
+					
+					gameSpeed = 14;
+					accuGameSpeed = 0;
 				}
-				else if (e.getKeyCode() == e.VK_SPACE && hasStarted && !threwStar)
+				else if (e.getKeyCode() == e.VK_SPACE && hasStarted && !threwStar && !sliding)
 				{
 					shootStar();
 					threwStar = true;
 					timeThrewStar = 0;
+					timesUsedStars++;
 				}
 				else if (e.getKeyCode() == e.VK_W && player.getY() == 720 && !jumping && !sliding && !died)
 				{
 					velocity = -23;
 					jumping = true;
 					player.setAction("Jump");
+					timesJumped++;
 				}
 				else if (e.getKeyCode() == e.VK_S && player.getY() == 720 && !sliding && !jumping && !died)
 				{
 					sliding = true;
 					player.setAction("Slide");
 					timeSlid = 0;
+					timesSlid++;
 				}
 			}
 
@@ -122,7 +171,7 @@ public class GameFrame extends JFrame implements ActionListener
 	public void actionPerformed(ActionEvent e)
 	{
 		
-		if (jumping && !died) //jump
+		if (jumping) //jump
 		{
 			player.setY(player.getY() + velocity);
 			velocity = velocity + 1;	
@@ -131,7 +180,8 @@ public class GameFrame extends JFrame implements ActionListener
 				velocity = 0;
 				player.setY(720);
 				jumping = false;
-				player.setAction("Run");
+				if (!died)
+					player.setAction("Run");
 			}
 		}
 		
@@ -227,6 +277,7 @@ public class GameFrame extends JFrame implements ActionListener
 							background.removeFromGame(stars.get(i));
 							stars.remove(i);
 							i--;
+							timesKilledEnemy++;
 						}
 					}
 					else if (currObs.get(j) instanceof WeakSpot && stars.get(i).isTouching(currObs.get(j)))
@@ -240,6 +291,7 @@ public class GameFrame extends JFrame implements ActionListener
 							i--;
 							background.removeFromGame(currObs.get(j));
 							currObs.remove(j);
+							timesDestroyedWall++;
 						}
 					}
 				}
@@ -256,6 +308,7 @@ public class GameFrame extends JFrame implements ActionListener
 		{
 			hasStarted = false;
 			player.setAction("Dead");
+			background.displayGameOver(score, timesJumped, timesSlid, timesUsedStars, timesKilledEnemy, timesDestroyedWall);
 		}
 		
 	}
