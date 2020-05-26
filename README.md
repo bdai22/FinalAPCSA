@@ -42,3 +42,6 @@ Polishing:
 -different sound tracks? (NO)
 - wall easier (NO)
 - fix running
+- releasing slide button
+- changing placements of obstacles
+- show ninja star reload
