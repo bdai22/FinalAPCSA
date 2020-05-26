@@ -42,7 +42,7 @@ public class GameFrame extends JFrame implements ActionListener
 	private int slideTimeMs = 1250;
 	private boolean threwStar;
 	private int timeThrewStar;
-	private int ninjaStarTimeMs = 1500;
+	private int ninjaStarTimeMs = 900;
 	private boolean died;
 	
 	private int gameTickRateMs = 30;
@@ -408,7 +408,7 @@ public class GameFrame extends JFrame implements ActionListener
 		SpikeWall spikeWall3;
 		WoodWall woodWall;
 		WeakSpot weakSpot;
-		int obstacle = (int)(Math.random()*5+1);
+		int obstacle = 3;//(int)(Math.random()*5+1);
 		if(obstacle == 1)
 		{
 		        woodWall = new WoodWall(2000, 0, 48, 900);
@@ -428,13 +428,13 @@ public class GameFrame extends JFrame implements ActionListener
 		        spikeBall = new CeilingSpikeBall(2000, -125, 70, 900);
 		        currObs.add(spikeBall);
 		        background.addToGame(spikeBall);
-		        if(score > 1000)
+		        if(score > 500)
 		        {
 		        	spikeBall2 = new CeilingSpikeBall(2090, -125, 70, 900);
 		        	currObs.add(spikeBall2);
 		        	background.addToGame(spikeBall2);
 		        }
-		        if(score > 2000)
+		        if(score > 1250)
 		        {
 		        	spikeBall3 = new CeilingSpikeBall(2180, -125, 70, 900);
 		        	currObs.add(spikeBall3);
@@ -443,18 +443,18 @@ public class GameFrame extends JFrame implements ActionListener
 		}
 		else if(obstacle == 3)
 		{
-		        enemyNinja = new EnemyNinja(2000, 700, 145, 145);
+		        enemyNinja = new EnemyNinja(2000, 700, 125, 125);
 		        currObs.add(enemyNinja);
 		        background.addToGame(enemyNinja);
-		        if(score > 1000)
+		        if(score > 500)
 		        {
-		        	enemyNinja1 = new EnemyNinja(2200, 700, 145, 145);
+		        	enemyNinja1 = new EnemyNinja(2150, 700, 125, 125);
 		        	currObs.add(enemyNinja1);
 		        	background.addToGame(enemyNinja1);
 		        }
-		        if(score > 2000)
+		        if(score > 1250)
 		        {
-		        	enemyNinja2 = new EnemyNinja(2400, 700, 145, 145);
+		        	enemyNinja2 = new EnemyNinja(2300, 700, 125, 125);
 		        	currObs.add(enemyNinja2);
 		        	background.addToGame(enemyNinja2);
 		        }
@@ -464,25 +464,25 @@ public class GameFrame extends JFrame implements ActionListener
 		        caltrop = new Caltrops(2000, 780, 110, 110);
 		        currObs.add(caltrop);
 		        background.addToGame(caltrop);
-		        if(score > 1000)
+		        if(score > 500)
 		        {
 		        	caltrop2 = new Caltrops(2075, 780, 110, 110);
 		        	currObs.add(caltrop2);
 		       	 	background.addToGame(caltrop2);
 		        }
-		        if(score > 2000)
+		        if(score > 1000)
 		        {
 		        	caltrop3 = new Caltrops(2150, 780, 110, 110);
 		        	currObs.add(caltrop3);
 		        	background.addToGame(caltrop3);
 		        }
-		        if (score > 3000)
+		        if (score > 1500)
 		        {
 		        	caltrop4 = new Caltrops(2225, 780, 110, 110);
 		        	currObs.add(caltrop4);
 		        	background.addToGame(caltrop4);
 		        }
-		        if (score > 4000)
+		        if (score > 2000)
 		        {
 		        	caltrop5 = new Caltrops(2300, 780, 110, 110);
 		        	currObs.add(caltrop5);
@@ -494,13 +494,13 @@ public class GameFrame extends JFrame implements ActionListener
 		        spikeWall = new SpikeWall(2000, 700, 150, 150);
 		        currObs.add(spikeWall);
 		        background.addToGame(spikeWall);
-		        if(score > 1000)
+		        if(score > 500)
 		        {
 		        	spikeWall2 = new SpikeWall(2100, 700, 150, 150);
 		        	currObs.add(spikeWall2);
 		        	background.addToGame(spikeWall2);
 		        }
-		        if(score > 2000)
+		        if(score > 1250)
 		        {
 		        	spikeWall3 = new SpikeWall(2200, 700, 150, 150);
 		        	currObs.add(spikeWall3);
