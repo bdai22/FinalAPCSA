@@ -38,9 +38,9 @@ eric's sprites:
 Polishing:
 -skins (NO)
 -Start menu (NO)
--game harder
+-game harder!
 -different sound tracks? (NO)
 - wall easier (NO)
 - fix running
-- releasing slide button
+- releasing slide button!
 - show ninja star reload (NO)
