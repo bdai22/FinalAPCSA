@@ -31,6 +31,11 @@ public abstract class Obstacles extends JComponent
 		setSize(width, height);
 	}
 	
+	public void setImgPosY(int y) //also only for woodwall
+	{
+		showImage.setLocation(showImage.getX(), y);
+	}
+	
 	public void update()
 	{
 		repaint();

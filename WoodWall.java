@@ -15,6 +15,7 @@ public class WoodWall extends Obstacles
 	{
 		super(width, height, new ImageIcon("WoodWall.png"));
 		setBounds(x, y, width, height);
+		setImgPosY(-40);
 		
 		destroyed = false;
 	}
@@ -24,6 +25,7 @@ public class WoodWall extends Obstacles
 	{
 		destroyed = true;
 		
+		setImgPosY(0);
 		this.setImgIcon(new ImageIcon("Planks.png"));
 		this.setImgBounds(60, 60);
 		this.setLocation(this.getX(), 800);
