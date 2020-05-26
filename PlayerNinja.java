@@ -50,6 +50,7 @@ public class PlayerNinja extends JComponent
 	{
 		if (currAction.equals("Run"))
 		{
+			showSprite.setLocation(0, 0);
 			currRunSprite++;
 			if (currRunSprite == 6)
 			{
@@ -59,14 +60,17 @@ public class PlayerNinja extends JComponent
 		}
 		else if (currAction.equals("Jump"))
 		{
+			showSprite.setLocation(0, 0);
 			showSprite.setIcon(jumpSprite);
 		}
 		else if (currAction.equals("Slide"))
 		{
+			showSprite.setLocation(0, 0);
 			showSprite.setIcon(slideSprite);
 		}
 		else if (currAction.equals("Dead"))
 		{
+			showSprite.setLocation(0, 15);
 			showSprite.setIcon(deadSprite);
 		}
 		repaint();
