@@ -86,6 +86,9 @@ public class GameFrame extends JFrame implements ActionListener
 		player = new PlayerNinja(200, 720, 108, 122);
 		background.addToGame(player);
 		
+		gameMusic = new MusicPlayer("RelaxingMusic.wav");
+		gameMusic.start();
+		
 		this.addKeyListener(new KeyListener() {
 
 			public void keyTyped(KeyEvent e) {}
@@ -99,6 +102,7 @@ public class GameFrame extends JFrame implements ActionListener
 					background.removeStart();
 					spawnNewObs();
 					
+					gameMusic.stopMusic();
 					gameMusic = new MusicPlayer("EpicNinjaMusic.wav");
 					gameMusic.start();
 				}
