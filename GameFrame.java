@@ -32,7 +32,7 @@ public class GameFrame extends JFrame implements ActionListener
 	private boolean jumping;
 	private boolean sliding;
 	private int timeSlid;
-	private int slideTimeMs = 1500;
+	private int slideTimeMs = 1250;
 	private boolean threwStar;
 	private int timeThrewStar;
 	private int ninjaStarTimeMs = 1500;
