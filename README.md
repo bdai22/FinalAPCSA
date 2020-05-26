@@ -43,5 +43,4 @@ Polishing:
 - wall easier (NO)
 - fix running
 - releasing slide button
-- changing placements of obstacles
-- show ninja star reload
+- show ninja star reload (NO)
