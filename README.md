@@ -34,3 +34,11 @@ eric's sprites:
 (extras)
 -MUSIC!
 -SFX (NO)
+
+Polishing:
+-Skins
+-Start menu
+-game harder
+-different sound tracks?
+- wall easier
+- fix running
